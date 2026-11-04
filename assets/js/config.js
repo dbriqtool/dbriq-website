@@ -6,7 +6,7 @@
    beta: the installer you uploaded to the private "beta" bucket in Supabase Storage. For a new release,
    upload the new file, change these values, then commit and push. */
 window.DBRIQ = {
-  supabaseUrl: "https://xzrgdsfrwmfbhtkuinub.supabase.co/rest/v1/",
+  supabaseUrl: "https://xzrgdsfrwmfbhtkuinub.supabase.co",
   supabaseAnonKey: "sb_publishable_g-J7wkWbEPhyAk99R85BQA_rwZDkurp",
 
   beta: {
