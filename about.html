@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About dbriq and its founder | dbriq</title>
+<meta name="description" content="dbriq is built by Vinay Yegineni, a SQL Server and Azure SQL database administrator with 12 years in 24x7 production.">
+<meta name="theme-color" content="#0E1C29">
+<link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:title" content="About dbriq and its founder | dbriq">
+<meta property="og:description" content="dbriq is built by Vinay Yegineni, a SQL Server and Azure SQL database administrator with 12 years in 24x7 production.">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:url" content="https://dbriq.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="30" height="30"><span>dbriq</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#tour">Tour</a>
+      <a href="/#platforms">Platforms</a>
+      <a href="/#security">Security</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-actions" data-auth-nav>
+      <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
+      <a class="btn btn-primary btn-small" href="/account.html?mode=signup" data-when="out">Get the beta</a>
+      <span class="who" data-when="in" data-user-email hidden></span>
+      <a class="btn btn-primary btn-small" href="/download.html" data-when="in" hidden>Download</a>
+      <button class="btn btn-ghost btn-small" type="button" data-when="in" data-sign-out hidden>Sign out</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="about-hero">
+  <div class="wrap about-hero-grid">
+    <div>
+      <h1>Built by a DBA, for the people who keep databases running.</h1>
+      <p class="about-lead">dbriq comes from twelve years of looking after SQL Server and Azure SQL databases in 24x7 production, and from knowing how long it takes to find out what is actually wrong.</p>
+    </div>
+    <aside class="founder" aria-label="Founder">
+      <div class="monogram" aria-hidden="true">VY</div>
+      <div>
+        <p class="founder-name">Vinay Yegineni</p>
+        <p class="founder-role">Founder of dbriq</p>
+        <p class="founder-meta">Database administrator for 12 years, specialising in SQL Server and Azure SQL</p>
+        <div class="founder-links">
+          <a class="btn btn-ghost btn-small" href="https://www.linkedin.com/in/vinay-yegineni" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost btn-small" href="mailto:support@dbriq.com">support@dbriq.com</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="story-title">
+  <div class="wrap story">
+    <h2 id="story-title">Why I built dbriq</h2>
+    <p>I&rsquo;ve been a database administrator for twelve years, looking after SQL Server and Azure SQL databases that can&rsquo;t go down. Over that time the estates grew: more servers, more cloud, more teams depending on them. The day-to-day monitoring didn&rsquo;t keep up.</p>
+    <p>The hard part was rarely the fix. It was finding the problem. An alert would say CPU was high or a job had failed, and then the real work began: which query, which session, what changed, and what is the safe thing to do about it. That meant jumping between tools, running my own scripts, and piecing the answer together under pressure.</p>
+    <p>dbriq is the tool I wanted on every one of those days. It watches the whole estate, and when something goes wrong it says in plain words what the bottleneck is, which query or session is behind it, why it is slow, what changed shortly before, and the script that fixes it. It never runs that script for you. That decision stays with the DBA.</p>
+    <p>dbriq is in beta now, and the people using it shape what comes next. If something doesn&rsquo;t work the way you would expect on your servers, I want to hear about it.</p>
+    <p class="signature">Vinay Yegineni, founder</p>
+  </div>
+</section>
+
+<section class="band band-alt" aria-labelledby="exp-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="exp-title">What twelve years in production put into dbriq</h2>
+      <p class="lead">Most of dbriq&rsquo;s checks come from problems I have solved by hand. Each area below shows where that experience turns up in the tool.</p>
+    </div>
+    <div class="experience">
+      <div class="exp">
+        <h3>Performance tuning</h3>
+        <p>Indexing strategies and execution plan analysis that cut query times by up to 40%.</p>
+        <p class="in-dbriq"><span>In dbriq</span>The execution plan explorer, and the advisor&rsquo;s explanation of why each query is slow.</p>
+      </div>
+      <div class="exp">
+        <h3>Moving to Azure</h3>
+        <p>Migrating on-premises SQL Server to Azure SQL Database and Managed Instance, for better scalability at lower infrastructure cost.</p>
+        <p class="in-dbriq"><span>In dbriq</span>Full support for Azure SQL Database, elastic pools and Managed Instance, with right-sizing advice.</p>
+      </div>
+      <div class="exp">
+        <h3>High availability and recovery</h3>
+        <p>Always On Availability Groups, failover clusters, log shipping and replication across multi-node clusters.</p>
+        <p class="in-dbriq"><span>In dbriq</span>Health checks for Availability Groups, geo-replica lag, backups against your RPO, and CHECKDB.</p>
+      </div>
+      <div class="exp">
+        <h3>Automation</h3>
+        <p>PowerShell scripts and SQL Agent jobs that take routine work off the team and cut manual intervention.</p>
+        <p class="in-dbriq"><span>In dbriq</span>Agent job failure checks, and a copy-ready fix script for every finding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="values-title">
+  <div class="wrap">
+    <div class="section-head"><h2 id="values-title">How dbriq is built</h2></div>
+    <div class="facts">
+      <div class="fact"><h3>Your servers stay yours</h3><p>dbriq runs on your own PC or server and connects with a read-only login. Nothing it collects is sent to us.</p></div>
+      <div class="fact"><h3>Advice, not autopilot</h3><p>Every finding comes with a fix script to review. dbriq never changes anything on your databases.</p></div>
+      <div class="fact"><h3>Plain words first</h3><p>A finding should say what is wrong and what to do, the way an experienced DBA would explain it to a colleague.</p></div>
+      <div class="fact"><h3>Light on production</h3><p>Monitoring queries are read-only with short timeouts, and reports run on short connections with a low deadlock priority.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="closing" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div>
+      <h2 id="contact-title">Talk to me</h2>
+      <p>Questions, bugs or ideas: write to support@dbriq.com. It comes straight to me.</p>
+    </div>
+    <div class="hero-actions" style="margin-top:0">
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/vinay-yegineni" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="btn btn-primary" href="mailto:support@dbriq.com">Email support@dbriq.com</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="26" height="26"><span>dbriq</span></a>
+      <p style="margin-top:.9rem">Database monitoring and performance advice for SQL Server, Azure SQL, PostgreSQL and MySQL.</p>
+      <p>&copy; <span data-year>2026</span> dbriq</p>
+    </div>
+    <div>
+      <h2>Product</h2>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#platforms">Platforms</a></li>
+        <li><a href="/#security">Security</a></li>
+        <li><a href="/download.html">Download the beta</a></li>
+        <li><a href="/about.html">About dbriq</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:hello@dbriq.com">hello@dbriq.com</a></li>
+        <li><a href="mailto:support@dbriq.com">support@dbriq.com</a></li>
+        <li><a href="mailto:security@dbriq.com">security@dbriq.com</a></li>
+        <li><a href="/privacy.html">Privacy</a> and <a href="/terms.html">beta terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/auth.js"></script>
+</body>
+</html>
