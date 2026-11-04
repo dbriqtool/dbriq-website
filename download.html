@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download the beta | dbriq</title>
+<meta name="description" content="Download the dbriq beta for Windows.">
+<meta name="theme-color" content="#0E1C29">
+<link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:title" content="Download the beta | dbriq">
+<meta property="og:description" content="Download the dbriq beta for Windows.">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:url" content="https://dbriq.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="30" height="30"><span>dbriq</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#tour">Tour</a>
+      <a href="/#platforms">Platforms</a>
+      <a href="/#security">Security</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <div class="header-actions" data-auth-nav>
+      <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
+      <a class="btn btn-primary btn-small" href="/account.html?mode=signup" data-when="out">Get the beta</a>
+      <span class="who" data-when="in" data-user-email hidden></span>
+      <a class="btn btn-primary btn-small" href="/download.html" data-when="in" hidden>Download</a>
+      <button class="btn btn-ghost btn-small" type="button" data-when="in" data-sign-out hidden>Sign out</button>
+    </div>
+  </div>
+</header>
+<main id="main" class="page">
+  <div class="panel panel-wide">
+    <div data-loading><p class="sub">Checking your account&hellip;</p></div>
+
+    <div data-ready hidden>
+      <h1>Download the dbriq beta</h1>
+      <p class="sub">Signed in as <strong data-user-email></strong>.</p>
+      <div class="msg" role="status" aria-live="polite" data-msg></div>
+
+      <dl class="release">
+        <div><dt>Version</dt><dd data-version></dd></div>
+        <div><dt>Released</dt><dd data-released></dd></div>
+        <div><dt>File</dt><dd data-size></dd></div>
+      </dl>
+      <button class="btn btn-primary" type="button" data-download>Download dbriqSetup.exe</button>
+      <p class="checksum" data-checksum-row hidden style="margin-top:1rem">SHA-256: <span data-checksum></span></p>
+
+      <h2>Install</h2>
+      <ol>
+        <li>Run the installer. Windows may say the publisher is unknown while dbriq is in beta: choose <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+        <li>dbriq opens in your browser with demo data, so you can look around first.</li>
+        <li>To monitor SQL Server you need <strong>Microsoft ODBC Driver 18 for SQL Server</strong>. The installer offers the download if it is missing.</li>
+      </ol>
+
+      <h2>Add your first server</h2>
+      <ol>
+        <li>Run the matching setup script on the server: <code>setup_monitoring_user.sql</code>, <code>setup_monitoring_postgres.sql</code> or <code>setup_monitoring_mysql.sql</code> (Start menu &gt; dbriq &gt; Setup scripts). Each creates a read-only monitoring login.</li>
+        <li>In dbriq, open <strong>Servers</strong>, choose <strong>Add server</strong>, enter the address and the monitoring login, then <strong>Test connection</strong>.</li>
+        <li>Start with a non-production server while dbriq is in beta.</li>
+      </ol>
+
+      <h2>Help</h2>
+      <ul class="plain">
+        <li>Questions or bugs: <a href="mailto:support@dbriq.com" style="color:var(--drum)">support@dbriq.com</a></li>
+        <li>Security issues: <a href="mailto:security@dbriq.com" style="color:var(--drum)">security@dbriq.com</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="26" height="26"><span>dbriq</span></a>
+      <p style="margin-top:.9rem">Database monitoring and performance advice for SQL Server, Azure SQL, PostgreSQL and MySQL.</p>
+      <p>&copy; <span data-year>2026</span> dbriq</p>
+    </div>
+    <div>
+      <h2>Product</h2>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#platforms">Platforms</a></li>
+        <li><a href="/#security">Security</a></li>
+        <li><a href="/download.html">Download the beta</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:hello@dbriq.com">hello@dbriq.com</a></li>
+        <li><a href="mailto:support@dbriq.com">support@dbriq.com</a></li>
+        <li><a href="mailto:security@dbriq.com">security@dbriq.com</a></li>
+        <li><a href="/privacy.html">Privacy</a> and <a href="/terms.html">beta terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/auth.js"></script>
+<script src="/assets/js/download.js"></script>
+</body>
+</html>

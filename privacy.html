@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy | dbriq</title>
+<meta name="description" content="How dbriq handles your account information.">
+<meta name="theme-color" content="#0E1C29">
+<link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:title" content="Privacy policy | dbriq">
+<meta property="og:description" content="How dbriq handles your account information.">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:url" content="https://dbriq.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="30" height="30"><span>dbriq</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#tour">Tour</a>
+      <a href="/#platforms">Platforms</a>
+      <a href="/#security">Security</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <div class="header-actions" data-auth-nav>
+      <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
+      <a class="btn btn-primary btn-small" href="/account.html?mode=signup" data-when="out">Get the beta</a>
+      <span class="who" data-when="in" data-user-email hidden></span>
+      <a class="btn btn-primary btn-small" href="/download.html" data-when="in" hidden>Download</a>
+      <button class="btn btn-ghost btn-small" type="button" data-when="in" data-sign-out hidden>Sign out</button>
+    </div>
+  </div>
+</header>
+<main id="main" class="band" style="min-height:70vh">
+  <div class="wrap legal">
+    <h1>Privacy policy</h1>
+    <p class="updated">Last updated 4 November 2026</p>
+
+    <p>This policy covers the dbriq website (dbriq.com) and your dbriq account. The dbriq app you install runs on your own computer or server and sends no information to us.</p>
+
+    <h2>What we collect</h2>
+    <ul>
+      <li>Your name, email address, company and role, which you give us when you create an account.</li>
+      <li>Your password, stored only as a secure hash by our sign-in provider. We can&rsquo;t read it.</li>
+      <li>Which beta versions you downloaded, and when.</li>
+      <li>Whether you asked us to email you about new beta versions.</li>
+    </ul>
+
+    <h2>How we use it</h2>
+    <ul>
+      <li>To let you sign in and download the beta.</li>
+      <li>To answer your support requests.</li>
+      <li>To email you about the beta: account emails always, and new versions only if you asked for them.</li>
+      <li>To understand how many people try dbriq, and in which roles.</li>
+    </ul>
+    <p>We don&rsquo;t sell your information or share it for advertising.</p>
+
+    <h2>Who processes it for us</h2>
+    <p>Accounts and downloads are handled by Supabase (sign-in, database and file storage). The website is hosted on GitHub Pages. Email is sent through Zoho Mail. These providers process data only to run these services for us.</p>
+
+    <h2>How long we keep it</h2>
+    <p>We keep your account until you ask us to delete it. Download records are kept with the account.</p>
+
+    <h2>Your choices</h2>
+    <p>To see, correct or delete your information, or to stop beta emails, write to <a href="mailto:hello@dbriq.com">hello@dbriq.com</a> from the email address on your account. We reply within 30 days.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes in a way that affects you, we&rsquo;ll email you before the change takes effect.</p>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="26" height="26"><span>dbriq</span></a>
+      <p style="margin-top:.9rem">Database monitoring and performance advice for SQL Server, Azure SQL, PostgreSQL and MySQL.</p>
+      <p>&copy; <span data-year>2026</span> dbriq</p>
+    </div>
+    <div>
+      <h2>Product</h2>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#platforms">Platforms</a></li>
+        <li><a href="/#security">Security</a></li>
+        <li><a href="/download.html">Download the beta</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:hello@dbriq.com">hello@dbriq.com</a></li>
+        <li><a href="mailto:support@dbriq.com">support@dbriq.com</a></li>
+        <li><a href="mailto:security@dbriq.com">security@dbriq.com</a></li>
+        <li><a href="/privacy.html">Privacy</a> and <a href="/terms.html">beta terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/auth.js"></script>
+</body>
+</html>

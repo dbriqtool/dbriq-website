@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dbriq: database monitoring and performance advice</title>
+<meta name="description" content="dbriq monitors SQL Server, Azure SQL, PostgreSQL and MySQL, finds the queries causing problems and gives you the scripts to fix them. Free beta for Windows.">
+<meta name="theme-color" content="#0E1C29">
+<link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:title" content="dbriq: database monitoring and performance advice">
+<meta property="og:description" content="dbriq monitors SQL Server, Azure SQL, PostgreSQL and MySQL, finds the queries causing problems and gives you the scripts to fix them. Free beta for Windows.">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:url" content="https://dbriq.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="30" height="30"><span>dbriq</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#tour">Tour</a>
+      <a href="/#platforms">Platforms</a>
+      <a href="/#security">Security</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <div class="header-actions" data-auth-nav>
+      <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
+      <a class="btn btn-primary btn-small" href="/account.html?mode=signup" data-when="out">Get the beta</a>
+      <span class="who" data-when="in" data-user-email hidden></span>
+      <a class="btn btn-primary btn-small" href="/download.html" data-when="in" hidden>Download</a>
+      <button class="btn btn-ghost btn-small" type="button" data-when="in" data-sign-out hidden>Sign out</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>Find the query that is hurting your database, and the script that fixes it.</h1>
+      <p>dbriq is a monitor and performance advisor for SQL Server, Azure SQL, PostgreSQL and MySQL. It runs on your own Windows PC or server, reads your databases through a read-only login, and tells you in plain words what is wrong and what to do about it.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/account.html?mode=signup">Create a free account</a>
+        <a class="btn btn-ghost" href="#tour">Take the tour</a>
+      </div>
+      <p class="hero-note">Free beta for Windows 10 and 11, 64&#8209;bit.</p>
+    </div>
+
+    <div class="pulse">
+      <svg viewBox="0 0 1200 160" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <line class="baseline" x1="0" y1="90" x2="1200" y2="90"/>
+        <path class="trace ok" pathLength="1" style="--dur:1.4s;--delay:.2s;--len:1"
+          d="M0 90H70l10-24 14 50 10-36 7 10H230l10-24 14 50 10-36 7 10H390l10-24 14 50 10-36 7 10H520"/>
+        <path class="trace warn" pathLength="1" style="--dur:.5s;--delay:1.6s;--len:1"
+          d="M520 90H540l10-34 14 62 10-48 7 20H670"/>
+        <path class="trace warn" pathLength="1" style="--dur:.9s;--delay:2.1s;--len:1"
+          d="M670 90l10-70 12 110 10-80 8 40H1200"/>
+        <circle class="ring" cx="680" cy="20" r="6"/>
+        <circle class="dot" cx="680" cy="20" r="5"/>
+      </svg>
+    <div class="finding" role="note" aria-label="Example finding from dbriq">
+        <span class="tag">Warning</span>
+        <strong>Session 72 is blocking 2 other sessions on OrdersDB</strong>
+        <p>OrderBatchService opened a transaction 33 seconds ago and isn't running anything, so it hasn't been committed. The longest wait is 22 seconds.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap hero-shot">
+    <img src="/assets/img/screens/diagnosis.webp" width="1440" height="900"
+      alt="The dbriq database page for OrdersDB, showing a blocking diagnosis: the session causing it, its statement, what to do, and fix scripts.">
+  </div>
+</section>
+
+<section class="band" id="features" aria-labelledby="features-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="features-title">The answers, not just the graphs</h2>
+      <p class="lead">dbriq reads waits, execution plans and history across every server you add, then says what is wrong, which queries are responsible, and how to fix it.</p>
+    </div>
+    <div class="questions">
+      <div class="question">
+        <h3>Why is it slow?</h3>
+        <ul>
+          <li><b>Performance advisor</b><span>Names the bottleneck (CPU, storage, log writes, memory, blocking, plan regressions), the queries behind it with their share of the load, and fix scripts you review and run yourself.</span></li>
+          <li><b>Response time</b><span>Active sessions are sampled every 2 seconds and classified by wait, so you see which queries spent the time and what they waited on.</span></li>
+          <li><b>Execution plans</b><span>A graphical plan laid out like SSMS, explained in sentences, with missing indexes, key lookups, spills and implicit conversions called out.</span></li>
+          <li><b>Time travel</b><span>Click any point on a chart to see what was running and who was blocking whom at that moment.</span></li>
+        </ul>
+      </div>
+      <div class="question">
+        <h3>What is about to break?</h3>
+        <ul>
+          <li><b>Health checks</b><span>Backups against your RPO, CHECKDB, Availability Group and geo-replica lag, failed Agent jobs, configuration and security best practices, and end-of-support dates.</span></li>
+          <li><b>Locks and deadlocks</b><span>Live blocking chains, blocking history, and deadlocks grouped into recurring patterns, each with a lock graph and a step-by-step account.</span></li>
+          <li><b>Storage forecasts</b><span>Databases, elastic pools, disks and Managed Instance storage that will fill up at the current rate of growth.</span></li>
+          <li><b>Alerts that know what normal looks like</b><span>Baselines per weekday and hour, maintenance windows, and routing to Slack, Teams, PagerDuty or any webhook.</span></li>
+        </ul>
+      </div>
+      <div class="question">
+        <h3>What do I report?</h3>
+        <ul>
+          <li><b>Inventory</b><span>One database, a whole server or the full estate as a printable HTML report or an Excel workbook.</span></li>
+          <li><b>Health report</b><span>What happened on a server in the last 24 hours or 7 days: alerts, blocking, deadlocks, changes and top queries.</span></li>
+          <li><b>Compliance</b><span>A security audit per server, and a report for auditors with controls, evidence and a sign-off block.</span></li>
+          <li><b>Index and cost reports</b><span>Unused, duplicate and missing indexes, parameter sniffing, and right-sizing with the monthly saving.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tour" id="tour" aria-labelledby="tour-title">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:0">
+      <h2 id="tour-title">See it before you install it</h2>
+      <p class="lead">Real screens from dbriq running its built-in demo: seven servers and 96 databases with problems built in. The installed app opens with the same demo, so you can look around before adding a server.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Screens">
+      <button role="tab" id="t-estate" aria-controls="p-estate" aria-selected="true">Estate</button>
+      <button role="tab" id="t-problems" aria-controls="p-problems" aria-selected="false" tabindex="-1">Problems only</button>
+      <button role="tab" id="t-diagnosis" aria-controls="p-diagnosis" aria-selected="false" tabindex="-1">Database diagnosis</button>
+      <button role="tab" id="t-plan" aria-controls="p-plan" aria-selected="false" tabindex="-1">Execution plan</button>
+      <button role="tab" id="t-inventory" aria-controls="p-inventory" aria-selected="false" tabindex="-1">Inventory report</button>
+    </div>
+    <div class="tour-panel tour-frame" role="tabpanel" id="p-estate" aria-labelledby="t-estate">
+      <p class="tour-caption">Every database on one page, sorted by risk. Healthy databases are hidden until you ask for them, and each problem row says what is wrong.</p>
+      <img src="/assets/img/screens/estate.webp" width="1440" height="900" loading="lazy" alt="The Estate page grouped by server, with critical and warning databases listed first and the top issue for each.">
+    </div>
+    <div class="tour-panel tour-frame" role="tabpanel" id="p-problems" aria-labelledby="t-problems" hidden>
+      <p class="tour-caption">Only the databases that need attention, most urgent first, each with its problem in words and a trend line.</p>
+      <img src="/assets/img/screens/problems.webp" width="1440" height="900" loading="lazy" alt="The Estate page in Problems only view.">
+    </div>
+    <div class="tour-panel tour-frame" role="tabpanel" id="p-diagnosis" aria-labelledby="t-diagnosis" hidden>
+      <p class="tour-caption">A database page: active alerts, the diagnosis, the session or query causing it, recent changes that may explain it, and fix scripts.</p>
+      <img src="/assets/img/screens/diagnosis.webp" width="1440" height="900" loading="lazy" alt="The OrdersDB page with a blocking diagnosis and steps to fix it.">
+    </div>
+    <div class="tour-panel tour-frame" role="tabpanel" id="p-plan" aria-labelledby="t-plan" hidden>
+      <p class="tour-caption">The execution plan of a running query with actual rows so far, what it does in plain sentences, and the operator where the cost is.</p>
+      <img src="/assets/img/screens/plan.webp" width="1440" height="900" loading="lazy" alt="The execution plan panel showing a key lookup that takes 82 percent of the cost.">
+    </div>
+    <div class="tour-panel tour-frame" role="tabpanel" id="p-inventory" aria-labelledby="t-inventory" hidden>
+      <p class="tour-caption">The inventory report for a server, ready to print to PDF or download as an Excel workbook.</p>
+      <img src="/assets/img/screens/inventory.webp" width="1440" height="900" loading="lazy" alt="The inventory report for a server.">
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt" id="platforms" aria-labelledby="platforms-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="platforms-title">Works with the databases you already run</h2>
+      <p class="lead">On-premises, in VMs and in the three big clouds. Up to 100 servers in one installation.</p>
+    </div>
+    <table class="platforms">
+      <thead><tr><th scope="col">Engine</th><th scope="col">Where it runs</th><th scope="col">What dbriq reads</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">SQL Server</th><td>SQL Server 2016 SP2 and later on-premises or in VMs, Azure SQL Managed Instance, Amazon RDS for SQL Server, Google Cloud SQL</td><td>Instance-wide DMVs, Query Store, msdb history</td></tr>
+        <tr><th scope="row">Azure SQL Database</th><td>Single databases and elastic pools</td><td>Per-database CPU, IO and log use, plus each database&rsquo;s DMVs</td></tr>
+        <tr><th scope="row">PostgreSQL 10+</th><td>Self-hosted, Azure Database for PostgreSQL, Amazon RDS and Aurora, Cloud SQL</td><td>pg_stat_activity, pg_stat_statements, table statistics</td></tr>
+        <tr><th scope="row">MySQL and MariaDB</th><td>MySQL 5.7 and 8.x, MariaDB, Azure Database for MySQL, Amazon RDS and Aurora, Cloud SQL</td><td>performance_schema digests and waits, InnoDB lock waits</td></tr>
+      </tbody>
+    </table>
+    <p class="table-note">PostgreSQL and MySQL don&rsquo;t report CPU through SQL, so dbriq ranks their queries by share of database time.</p>
+  </div>
+</section>
+
+<section class="band" id="security" aria-labelledby="security-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="security-title">Your data stays on your network</h2>
+      <p class="lead">dbriq sees query text and server details, so it is built to keep them where they are.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><h3>Runs where you install it</h3><p>dbriq is a Windows app, or a team server on your own Windows or Linux machine. Metrics and query text are stored there. The app sends nothing to us.</p></div>
+      <div class="fact"><h3>Read-only by design</h3><p>The setup scripts create a monitoring login with only the permissions it needs. Fix scripts are shown for you to review and run; dbriq never runs them.</p></div>
+      <div class="fact"><h3>Passwords stay encrypted</h3><p>Server passwords are kept in Windows Credential Manager or an encrypted vault, never in the configuration file.</p></div>
+      <div class="fact"><h3>AI only when you ask</h3><p>&ldquo;Explain with AI&rdquo; is optional and needs your own Claude API key. It sends the finding and the query with every literal value replaced by a question mark.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt" id="start" aria-labelledby="start-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="start-title">Getting started</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Create an account</h3><p>Free, with your work email. Confirm it from the email we send.</p></li>
+      <li><h3>Install dbriq</h3><p>Run dbriqSetup.exe on Windows 10 or 11. No administrator rights needed. It opens with demo data so you can look around first.</p></li>
+      <li><h3>Create the monitoring login</h3><p>Run <code>setup_monitoring_user.sql</code>, or the PostgreSQL or MySQL script, on each server. The scripts are in the Start menu under dbriq.</p></li>
+      <li><h3>Add your servers</h3><p>Open Servers, choose Add server, test the connection, and dbriq starts collecting. Findings appear within minutes.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="section-head"><h2 id="faq-title">Questions</h2></div>
+    <div class="faq">
+      <details><summary>Is the beta free?</summary><p>Yes. Create an account and download it; there is nothing to pay during the beta.</p></details>
+      <details><summary>Should I point it at production servers?</summary><p>Start with a non-production server, as you would with any new monitoring tool. Monitoring queries are read-only with a 30-second timeout, and reports run on short connections with a 5-second lock timeout and low deadlock priority. Once you are comfortable with what it does, add production.</p></details>
+      <details><summary>Does dbriq change anything on my servers?</summary><p>No. It reads system views and never runs the fix scripts it suggests. The only thing it creates is a temporary one-minute capture session if you run the client timeouts report without the optional always-on session, and it drops that session afterwards.</p></details>
+      <details><summary>What does it need on my computer?</summary><p>Windows 10 or 11, 64&#8209;bit. For SQL Server you also need Microsoft ODBC Driver 18 for SQL Server; SSMS and Azure Data Studio usually install it already, and the installer offers the download if it is missing. PostgreSQL and MySQL drivers are built in.</p></details>
+      <details><summary>Can my whole team use it?</summary><p>Yes. dbriq can run as a team server behind HTTPS with sign-in, roles (viewer, operator, admin), access limited to particular servers or databases, and single sign-on through your reverse proxy. Email <a href="mailto:support@dbriq.com">support@dbriq.com</a> for help setting it up.</p></details>
+      <details><summary>Is there a Mac or Linux version?</summary><p>The desktop app is Windows only. The team server also runs on Linux in Docker, and the dashboard works in any modern browser.</p></details>
+      <details><summary>How do I report a bug or suggest a feature?</summary><p>Email <a href="mailto:support@dbriq.com">support@dbriq.com</a> with what you saw and the dbriq version from the installer. Please send security issues to <a href="mailto:security@dbriq.com">security@dbriq.com</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing" aria-labelledby="closing-title">
+  <div class="wrap">
+    <div>
+      <h2 id="closing-title">Try dbriq on your own servers</h2>
+      <p>Free during the beta. Windows 10 and 11, 64&#8209;bit.</p>
+    </div>
+    <a class="btn btn-primary" href="/account.html?mode=signup">Create a free account</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="26" height="26"><span>dbriq</span></a>
+      <p style="margin-top:.9rem">Database monitoring and performance advice for SQL Server, Azure SQL, PostgreSQL and MySQL.</p>
+      <p>&copy; <span data-year>2026</span> dbriq</p>
+    </div>
+    <div>
+      <h2>Product</h2>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#platforms">Platforms</a></li>
+        <li><a href="/#security">Security</a></li>
+        <li><a href="/download.html">Download the beta</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:hello@dbriq.com">hello@dbriq.com</a></li>
+        <li><a href="mailto:support@dbriq.com">support@dbriq.com</a></li>
+        <li><a href="mailto:security@dbriq.com">security@dbriq.com</a></li>
+        <li><a href="/privacy.html">Privacy</a> and <a href="/terms.html">beta terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/auth.js"></script>
+<script src="/assets/js/home.js"></script>
+</body>
+</html>

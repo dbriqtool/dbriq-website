@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /download.html
+Sitemap: https://dbriq.com/sitemap.xml
