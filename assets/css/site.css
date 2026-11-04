@@ -332,3 +332,7 @@ code, .mono { font-family: var(--mono); font-size: .92em; }
 .builder h2 { font-size: clamp(1.4rem, 2.4vw, 1.8rem); margin-bottom: .5rem; }
 .builder p { color: var(--band-muted); margin-bottom: .6rem; }
 @media (max-width: 560px) { .builder { flex-direction: column; align-items: flex-start; } }
+.avatar { object-fit: cover; padding: 0; background: var(--harbor); }
+.founder .avatar { width: 120px; height: 120px; }
+.builder .avatar { width: 80px; height: 80px; }
+@media (max-width: 420px) { .founder { flex-direction: column; } }
