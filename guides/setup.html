@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup guide | dbriq</title>
+<meta name="description" content="Install dbriq, create the monitoring login, add servers and set up alerts.">
+<meta name="theme-color" content="#0E1C29">
+<link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:title" content="Setup guide | dbriq">
+<meta property="og:description" content="Install dbriq, create the monitoring login, add servers and set up alerts.">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:url" content="https://dbriq.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="30" height="30"><span>dbriq</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#tour">Tour</a>
+      <a href="/#platforms">Platforms</a>
+      <a href="/#security">Security</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-actions" data-auth-nav>
+      <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
+      <a class="btn btn-primary btn-small" href="/account.html?mode=signup" data-when="out">Get the beta</a>
+      <span class="who" data-when="in" data-user-email hidden></span>
+      <a class="btn btn-primary btn-small" href="/download.html" data-when="in" hidden>Download</a>
+      <button class="btn btn-ghost btn-small" type="button" data-when="in" data-sign-out hidden>Sign out</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="guide-hero">
+  <div class="wrap">
+    <p class="guide-kicker">dbriq guides</p>
+    <h1>Setup guide</h1>
+    <p class="guide-lead">Install dbriq, connect your servers and set up alerts. About 15 minutes from download to your first findings.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/guides/dbriq-setup-guide.pdf" download>Download PDF</a>
+      <a class="btn btn-ghost" href="/guides/user-guide.html">User guide</a>
+    </div>
+  </div>
+</section>
+<section class="band guide-band">
+  <div class="wrap guide-layout">
+    <nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><div class="toc">
+<ul>
+<li><a href="#what-you-need">What you need</a></li>
+<li><a href="#supported-databases">Supported databases</a></li>
+<li><a href="#step-1-install-dbriq">Step 1: Install dbriq</a></li>
+<li><a href="#step-2-create-the-monitoring-login">Step 2: Create the monitoring login</a></li>
+<li><a href="#step-3-add-your-servers">Step 3: Add your servers</a></li>
+<li><a href="#step-4-set-up-alerts-and-settings">Step 4: Set up alerts and settings</a></li>
+<li><a href="#step-5-optional-share-dbriq-with-your-team">Step 5 (optional): Share dbriq with your team</a></li>
+<li><a href="#updating-data-and-uninstalling">Updating, data and uninstalling</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</div>
+</nav>
+    <article class="guide-body">
+<p>dbriq monitors SQL Server, Azure SQL, PostgreSQL and MySQL from your own Windows PC or server, and tells you in plain words what is wrong and how to fix it. This guide takes you from download to your first findings in about 15 minutes. When you are done, the <a href="/guides/user-guide.html">User guide</a> explains every page of the app.</p>
+<h2 id="what-you-need">What you need</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Computer</td>
+<td>Windows 10 or 11, 64-bit. No administrator rights needed.</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Any current browser (Edge, Chrome, Firefox). The dashboard opens at http://localhost:8050.</td>
+</tr>
+<tr>
+<td>SQL Server driver</td>
+<td>Microsoft ODBC Driver 18 for SQL Server, for SQL Server, Azure SQL and Managed Instance only. PostgreSQL and MySQL drivers are built in.</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>The PC must reach each database on its port (usually 1433 SQL Server, 5432 PostgreSQL, 3306 MySQL).</td>
+</tr>
+<tr>
+<td>Database access</td>
+<td>A read-only monitoring login on each server, created with the scripts in step 2.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="supported-databases">Supported databases</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Engine</th>
+<th>Where it runs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL Server</td>
+<td>2016 SP2 and later on-premises or in VMs; Azure SQL Managed Instance; Amazon RDS for SQL Server; Google Cloud SQL</td>
+</tr>
+<tr>
+<td>Azure SQL Database</td>
+<td>Single databases and elastic pools</td>
+</tr>
+<tr>
+<td>PostgreSQL 10+</td>
+<td>Self-hosted; Azure Database for PostgreSQL; Amazon RDS and Aurora; Cloud SQL</td>
+</tr>
+<tr>
+<td>MySQL and MariaDB</td>
+<td>MySQL 5.7 and 8.x; MariaDB; Azure Database for MySQL; Amazon RDS and Aurora; Cloud SQL</td>
+</tr>
+</tbody>
+</table></div>
+<p>dbriq is in beta. Start with a non-production server, then add production once you are comfortable with what it does.</p>
+<h2 id="step-1-install-dbriq">Step 1: Install dbriq</h2>
+<p>Installing takes about two minutes and needs no administrator rights. dbriq installs into your own user folder and opens with demo data, so you can look around before connecting a real server.</p>
+<ol>
+<li>Sign in at <a href="https://dbriq.com" target="_blank" rel="noopener">dbriq.com</a> and download the installer from the download page.</li>
+<li>Before opening the download, right-click it, choose <strong>Properties</strong>, tick <strong>Unblock</strong> at the bottom of the General tab, and click <strong>OK</strong>. This stops the blue Windows warning, because dbriq is not yet code-signed.</li>
+<li>If you downloaded a ZIP, right-click it, choose <strong>Extract All</strong>, and open the extracted folder.</li>
+<li>Run the installer. If Windows still shows "Windows protected your PC", click <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+<li>Choose whether to add a desktop icon and whether to start dbriq when you sign in to Windows, then click <strong>Install</strong>.</li>
+<li>If Microsoft ODBC Driver 17 or 18 for SQL Server is missing, the installer offers to open Microsoft's download page. Install the 64-bit driver if you will monitor SQL Server, Azure SQL or Managed Instance. You can skip it for PostgreSQL and MySQL.</li>
+<li>Leave <strong>Open dbriq</strong> ticked and click <strong>Finish</strong>.</li>
+</ol>
+<p>dbriq opens in your browser at http://localhost:8050 and adds a dbriq icon to the Windows notification area (system tray). Right-click that icon for <strong>Open dashboard</strong> or <strong>Quit dbriq</strong>.</p>
+<p>On a company laptop, a message such as "Your organization has blocked this app" means your IT team must approve dbriq first. Send them the download link and the SHA-256 checksum shown on the download page.</p>
+<h3 id="the-demo-estate">The demo estate</h3>
+<p>Until you add your first server, dbriq shows a built-in demo: seven servers and about 100 databases with realistic problems such as blocking, a slow query and a log filling up. A <strong>Demo data</strong> label sits at the bottom of the left menu. Use it to learn the pages in the <a href="/guides/user-guide.html">User guide</a>. The demo switches off automatically when you add a real server.</p>
+<h2 id="step-2-create-the-monitoring-login">Step 2: Create the monitoring login</h2>
+<p>dbriq connects to each server with its own read-only login, named <code>dbriq</code> in the scripts. Run the matching script once per server as an administrator. The scripts are in the Start menu under <strong>dbriq &gt; Setup scripts</strong>.</p>
+<p>In every script, replace <code>&lt;use a strong password&gt;</code> with a real password and keep it for step 3. None of the scripts give dbriq permission to change data or settings.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Engine</th>
+<th>Script</th>
+<th>What it grants</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL Server (on-premises, VM) and Managed Instance</td>
+<td><code>setup_monitoring_user.sql</code>, SQL Server section</td>
+<td>VIEW SERVER STATE and VIEW ANY DEFINITION; a user in each monitored database; SELECT on the specific msdb backup and Agent job tables</td>
+</tr>
+<tr>
+<td>Azure SQL Database</td>
+<td><code>setup_monitoring_user.sql</code>, Azure SQL Database section</td>
+<td>A login in master; VIEW DATABASE STATE and VIEW DEFINITION in each database</td>
+</tr>
+<tr>
+<td>Amazon RDS for SQL Server</td>
+<td><code>setup_monitoring_user.sql</code>, RDS section</td>
+<td>Run as the RDS master user; same permissions as SQL Server</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>setup_monitoring_postgres.sql</code></td>
+<td>The built-in <code>pg_monitor</code> role, plus CONNECT on each database</td>
+</tr>
+<tr>
+<td>MySQL and MariaDB</td>
+<td><code>setup_monitoring_mysql.sql</code></td>
+<td>PROCESS, SELECT on <code>performance_schema</code> and <code>sys</code>, REPLICATION CLIENT</td>
+</tr>
+</tbody>
+</table></div>
+<p>Set up dbriq with an earlier version? Your existing <code>sqlmonitor</code> login and its <code>sqlmonitor_*</code> event sessions keep working, so there is no need to recreate them.</p>
+<h3 id="engine-specific-notes">Engine-specific notes</h3>
+<ul>
+<li><strong>SQL Server:</strong> on SQL Server 2022 and Managed Instance, the script shows newer, narrower permissions you can use instead. dbriq deliberately does not read Agent job step commands or Database Mail content, which often contain secrets.</li>
+<li><strong>Azure SQL Database:</strong> run part 3 of the script in each database as an admin. It creates a small in-memory deadlock capture, because Azure SQL Database keeps no deadlock history a monitoring login can read.</li>
+<li><strong>PostgreSQL:</strong> query statistics need the <code>pg_stat_statements</code> extension. Add it to <code>shared_preload_libraries</code>, restart PostgreSQL, then run <code>CREATE EXTENSION pg_stat_statements;</code>. Without it, everything except top queries still works.</li>
+<li><strong>MySQL:</strong> <code>performance_schema</code> must be on. It is on by default in 5.7 and later; on Amazon RDS, check the parameter group.</li>
+</ul>
+<h3 id="optional-extras">Optional extras</h3>
+<ul>
+<li><strong>Client timeouts report:</strong> the always-on <code>dbriq_attention</code> event session in the script. Without it, the report offers a one-minute capture, which needs ALTER ANY EVENT SESSION.</li>
+<li><strong>Parameter sniffing histograms:</strong> <code>GRANT SELECT ON SCHEMA::dbo TO dbriq;</code> in the databases where you want histogram evidence.</li>
+</ul>
+<p>Without the msdb permissions, backup, job and CHECKDB checks are skipped and everything else still works.</p>
+<h2 id="step-3-add-your-servers">Step 3: Add your servers</h2>
+<p>Adding a server takes about a minute, and dbriq shows its first figures within 15 seconds. Adding the first real server switches off the demo data.</p>
+<ol>
+<li>Click <strong>Servers</strong> in the left menu, then <strong>Add server</strong>.</li>
+<li>Fill in the form, using the table below.</li>
+<li>Click <strong>Test connection</strong>. Fix any error it reports (see Troubleshooting), then click <strong>Add server</strong>.</li>
+<li>Repeat for each server. One installation monitors up to 100 servers.</li>
+</ol>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What to enter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database engine</td>
+<td>SQL Server, Azure SQL, PostgreSQL or MySQL</td>
+</tr>
+<tr>
+<td>Display name</td>
+<td>A short name shown on the estate, in alerts and in search, such as <code>prod-sql-01</code></td>
+</tr>
+<tr>
+<td>Server address</td>
+<td>Host name or IP address, such as <code>sql01.corp.local</code> or <code>myserver.database.windows.net</code></td>
+</tr>
+<tr>
+<td>Port</td>
+<td>Filled in for the engine; change it only if your server uses another port</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>SQL login (the <code>dbriq</code> login from step 2), Windows authentication, or a Microsoft Entra option for Azure (password, service principal, interactive with MFA, or your Azure CLI sign-in)</td>
+</tr>
+<tr>
+<td>User name and password</td>
+<td>The monitoring login and its password</td>
+</tr>
+<tr>
+<td>ODBC driver</td>
+<td>SQL Server family only; choose ODBC Driver 18 if it is listed</td>
+</tr>
+<tr>
+<td>Trust server certificate</td>
+<td>SQL Server only. Tick only for internal servers with self-signed certificates; leave it off for Azure and AWS</td>
+</tr>
+<tr>
+<td>SSL</td>
+<td>PostgreSQL and MySQL. Keep <strong>Required (recommended)</strong></td>
+</tr>
+<tr>
+<td>Maintenance database</td>
+<td>PostgreSQL only. The database where <code>pg_stat_statements</code> is installed, usually <code>postgres</code></td>
+</tr>
+<tr>
+<td>Databases</td>
+<td><strong>All online databases</strong>, or <strong>Only these databases</strong> with a list</td>
+</tr>
+<tr>
+<td>Skip these databases</td>
+<td>Optional, comma separated, such as <code>master, tempdb_copy</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Passwords are stored in Windows Credential Manager, never in a settings file.</p>
+<h3 id="what-happens-next">What happens next</h3>
+<p>dbriq collects on four schedules, all changeable under <strong>Settings</strong>:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Schedule</th>
+<th>Every</th>
+<th>What it collects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fast</td>
+<td>15 s</td>
+<td>CPU, sessions, blocking, waits, running queries, pool usage</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>60 s</td>
+<td>Query statistics and plans, deadlocks, IO latency, memory grants</td>
+</tr>
+<tr>
+<td>Slow</td>
+<td>10 min</td>
+<td>Space, missing indexes, statistics, Query Store regressions, configuration</td>
+</tr>
+<tr>
+<td>Index scan</td>
+<td>12 h</td>
+<td>Index fragmentation, at most two databases at a time</td>
+</tr>
+</tbody>
+</table></div>
+<p>Every monitoring query has a 30-second timeout. Health checks and top-query history fill in over the first hour; baselines for anomaly alerts need about a week of history.</p>
+<p>To take a server out of monitoring for a while, click <strong>Pause</strong> on the Servers page. <strong>Remove</strong> stops monitoring and deletes its saved password.</p>
+<h2 id="step-4-set-up-alerts-and-settings">Step 4: Set up alerts and settings</h2>
+<p>dbriq works with its default settings, but most teams spend ten minutes on alert routing and maintenance windows. Everything below is under <strong>Settings</strong> in the left menu; click <strong>Save settings</strong> after changes.</p>
+<h3 id="send-alerts-to-your-team">Send alerts to your team</h3>
+<p>Under <strong>Notification routes</strong>, add one route per destination. Every alert goes to each route it matches.</p>
+<ol>
+<li>Choose the <strong>Type</strong>: Slack incoming webhook, Microsoft Teams webhook, PagerDuty (Events API v2), or Generic webhook (JSON).</li>
+<li>Give it a <strong>Name</strong>, and paste the <strong>Webhook URL or routing key</strong>.</li>
+<li>Under <strong>Servers</strong>, enter <code>*</code> for all servers, or names and wildcards such as <code>prod-*</code>.</li>
+<li>Choose the <strong>Minimum severity</strong>: Warning and critical, or Critical only.</li>
+<li>Click <strong>Add route</strong>, then <strong>Send test</strong> to check it arrives.</li>
+</ol>
+<p>A common setup is Slack or Teams for all warnings, and PagerDuty for <code>prod-*</code> critical alerts only.</p>
+<h3 id="maintenance-windows">Maintenance windows</h3>
+<p>Under <strong>Maintenance windows</strong>, add the times when patching, index rebuilds or backups normally cause spikes. dbriq raises no new alerts or notifications during them.</p>
+<h3 id="alert-thresholds">Alert thresholds</h3>
+<p><strong>Alert thresholds</strong> has a master switch, one switch and limit per metric (CPU, IO, log, blocking, space and others), and a separate switch for anomaly alerts. Anomaly alerts compare each value with what is normal for that weekday and hour, so they need about a week of history before they fire.</p>
+<h3 id="what-to-collect">What to collect</h3>
+<p>Under <strong>Collection</strong>, each feature has its own switch: wait sampling, query statistics, execution plans, deadlock capture, index scans, change detection, time-travel snapshots, baselines and the advisor. Switching one off stops that work on your servers, not just the display. You can also change the collection schedules here.</p>
+<p><strong>Health checks</strong> and <strong>Cost analysis</strong> have the same kind of switches, plus an exclusion list per check, such as <code>sqlvm-erp01/Archive*</code> or <code>*/ReportServer*</code>.</p>
+<h3 id="explain-with-ai-optional">Explain with AI (optional)</h3>
+<p>Under <strong>AI assistant</strong>, turn on <strong>Explain with AI</strong> and paste an Anthropic API key from console.anthropic.com. Each finding then gets an <strong>Explain with AI</strong> button. dbriq sends the finding and the query with every literal value masked; turn off <strong>Include query text</strong> if even the query structure is confidential.</p>
+<h3 id="email-optional">Email (optional)</h3>
+<p>The <strong>Email</strong> section is used only for password-reset codes when sign-in is on (step 5). Enter your SMTP server, port, security, sign-in and From address, then <strong>Send test</strong>. Alerts go through notification routes, not email.</p>
+<h3 id="history">History</h3>
+<p>dbriq keeps 14 days of history by default, in a small database in its data folder.</p>
+<h2 id="step-5-optional-share-dbriq-with-your-team">Step 5 (optional): Share dbriq with your team</h2>
+<p>For one DBA, the desktop app is enough. For a team, install dbriq once on a server; everyone then opens an address such as <code>https://dbriq.corp.example.com</code> and signs in. The browser talks HTTPS to IIS or Caddy, which passes requests to dbriq on the same server only.</p>
+<h3 id="windows-server-with-iis">Windows Server with IIS</h3>
+<ol>
+<li>On the server, run the installer and choose <strong>Install for all users</strong>.</li>
+<li>Install two free IIS modules from Microsoft: <strong>URL Rewrite</strong> and <strong>Application Request Routing</strong>.</li>
+<li>Get a DNS record (for example <code>dbriq.corp.example.com</code>) pointing to the server, and a certificate with that name. Import it into <strong>Local Computer &gt; Personal</strong> and note its thumbprint.</li>
+<li>In PowerShell as Administrator, in <code>C:\Program Files\dbriq\deploy\windows</code>, run:</li>
+</ol>
+<pre><code class="language-powershell">.\Install-DbriqServer.ps1 -HostName dbriq.corp.example.com -CertificateThumbprint &lt;thumbprint&gt;
+</code></pre>
+<p>It asks for the first admin's password, then sets up the data folder, background service, IIS site and firewall. To try it before you have a certificate, use <code>-SelfSignedForTesting</code> instead of <code>-CertificateThumbprint</code>; browsers will warn.</p>
+<p>Then open the address, sign in as the admin, and add each DBA under <strong>Settings &gt; Users</strong> with a temporary password.</p>
+<p>To sign in to SQL Server with Windows authentication, run the service as a group managed service account with <code>-ServiceAccount 'CORP\gmsa-dbriq$'</code>. Use <code>-AppPort</code> if port 8050 is taken.</p>
+<p><strong>Back up <code>C:\ProgramData\dbriq</code>, including <code>keys\vault.key</code>.</strong> Without that key, the saved server passwords cannot be decrypted.</p>
+<h3 id="linux-or-docker">Linux or Docker</h3>
+<p><code>deploy/linux/docker-compose.https.yml</code> runs dbriq with Caddy in front:</p>
+<ol>
+<li>Put your certificate in <code>deploy/linux/certs</code> and set the host name in <code>Caddyfile</code>.</li>
+<li>Create <code>sqlmon_key.txt</code> (the credential vault key) and a <code>.env</code> file with the first admin's name and password.</li>
+<li>Run <code>docker compose -f docker-compose.https.yml up -d</code>.</li>
+</ol>
+<h3 id="users-and-roles">Users and roles</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Can do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Viewer</td>
+<td>Read everything; change nothing</td>
+</tr>
+<tr>
+<td>Operator</td>
+<td>Acknowledge alerts, pause servers, add change markers, run captures, use AI explanations</td>
+</tr>
+<tr>
+<td>Admin</td>
+<td>Everything, including servers, settings and users</td>
+</tr>
+</tbody>
+</table></div>
+<p>Users must choose their own password (12 or more characters) at first sign-in. Closing the browser signs them out, as do 30 idle minutes (changeable under <strong>Settings &gt; Access</strong>), and every sign-in ends after 12 hours. Five wrong passwords lock that user name for 15 minutes. Every sign-in and change is recorded in the audit log under <strong>Settings</strong>.</p>
+<p>To use Windows or Entra ID sign-in instead of passwords, put an authenticating proxy in front (IIS Windows authentication, Azure App Service authentication, or oauth2-proxy) and choose <strong>Single sign-on via reverse proxy</strong> under <strong>Settings &gt; Access</strong>.</p>
+<h2 id="updating-data-and-uninstalling">Updating, data and uninstalling</h2>
+<h3 id="updating-to-a-new-version">Updating to a new version</h3>
+<p>Download the new installer from <a href="https://dbriq.com" target="_blank" rel="noopener">dbriq.com</a> and run it over the existing installation. Your servers, settings, history and saved passwords are kept. Quit dbriq first from the tray icon, or the installer will close it for you.</p>
+<h3 id="where-dbriq-keeps-its-data">Where dbriq keeps its data</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Installation</th>
+<th>Data folder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desktop app</td>
+<td><code>%APPDATA%\dbriq</code> (settings, history and logs)</td>
+</tr>
+<tr>
+<td>Team server on Windows</td>
+<td><code>C:\ProgramData\dbriq</code></td>
+</tr>
+<tr>
+<td>Docker</td>
+<td>The <code>/data</code> volume</td>
+</tr>
+</tbody>
+</table></div>
+<p>Server passwords are kept in Windows Credential Manager on the desktop, or in an encrypted vault on a team server. To move a team server, back up the whole data folder including <code>keys\vault.key</code>; without that key the saved passwords cannot be read.</p>
+<h3 id="uninstalling">Uninstalling</h3>
+<ol>
+<li>Open Windows <strong>Settings &gt; Apps &gt; Installed apps</strong>, find <strong>dbriq</strong>, and choose <strong>Uninstall</strong>.</li>
+<li>dbriq asks whether to remove all its data. Choose <strong>Yes</strong> to delete your servers, settings, history, logs and saved passwords. Choose <strong>No</strong> to keep them for a later reinstall.</li>
+</ol>
+<p>Uninstalling never changes your database servers. To remove the monitoring login as well, drop the <code>dbriq</code> login and users on each server, and any <code>dbriq_*</code> event sessions you created.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Most problems show up as a clear message under <strong>Test connection</strong>, or in the <strong>Collection errors</strong> panel on the Estate page. Find the message or symptom below.</p>
+<h3 id="connecting-to-servers">Connecting to servers</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Message or symptom</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Login failed</td>
+<td>Check the user name and password, and that the <code>dbriq</code> login exists on that server</td>
+</tr>
+<tr>
+<td>The login works but has no user in this database</td>
+<td>Run <code>CREATE USER dbriq FROM LOGIN dbriq;</code> in that database</td>
+</tr>
+<tr>
+<td>The login can't read performance data</td>
+<td>Grant VIEW SERVER STATE (instances) or VIEW DATABASE STATE in each database (Azure SQL Database), as in the setup script</td>
+</tr>
+<tr>
+<td>Azure blocked this computer's IP address</td>
+<td>In the Azure portal, add the PC's IP address under the server's <strong>Networking</strong> settings, then wait about 5 minutes</td>
+</tr>
+<tr>
+<td>The ODBC driver isn't installed ("Data source name not found")</td>
+<td>Install Microsoft ODBC Driver 18 for SQL Server (64-bit), or pick an installed driver in the server's settings</td>
+</tr>
+<tr>
+<td>Certificate chain not trusted</td>
+<td>For an internal server with a self-signed certificate, tick <strong>Trust server certificate</strong>. Leave it off for Azure and AWS</td>
+</tr>
+<tr>
+<td>Timeout, or server shows Unreachable</td>
+<td>Check the address and port, and that firewalls and VPNs let the PC reach the server</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="missing-information">Missing information</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Cause and fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No top queries on PostgreSQL</td>
+<td><code>pg_stat_statements</code> isn't loaded. Add it to <code>shared_preload_libraries</code>, restart, and run <code>CREATE EXTENSION pg_stat_statements;</code></td>
+</tr>
+<tr>
+<td>No top queries on MySQL</td>
+<td><code>performance_schema</code> is off. Turn it on (on Amazon RDS, in the parameter group) and restart</td>
+</tr>
+<tr>
+<td>No backup, job or CHECKDB checks</td>
+<td>The login can't read msdb. Run the msdb part of the setup script</td>
+</tr>
+<tr>
+<td>No deadlocks on Azure SQL Database</td>
+<td>Run the deadlock capture part of the setup script in each database</td>
+</tr>
+<tr>
+<td>A page or feature shows nothing at all</td>
+<td>It may be switched off under <strong>Settings &gt; Collection</strong>, <strong>Health checks</strong> or <strong>Cost analysis</strong></td>
+</tr>
+<tr>
+<td>No anomaly alerts yet</td>
+<td>Baselines need about a week of history</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="the-app-itself">The app itself</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows shows "Windows protected your PC"</td>
+<td>Right-click the download, choose <strong>Properties</strong>, tick <strong>Unblock</strong>, then run it; or click <strong>More info</strong>, then <strong>Run anyway</strong></td>
+</tr>
+<tr>
+<td>"Your organization has blocked this app"</td>
+<td>Your IT team must approve dbriq; send them the download link and SHA-256 checksum</td>
+</tr>
+<tr>
+<td>The dashboard doesn't open</td>
+<td>Right-click the dbriq tray icon and choose <strong>Open dashboard</strong>. If port 8050 is busy, dbriq uses the next free port</td>
+</tr>
+<tr>
+<td>Alerts don't reach Slack, Teams or PagerDuty</td>
+<td>Click <strong>Send test</strong> on the route; check the webhook URL, the route's servers and minimum severity, and that no maintenance window is active</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="logs-and-help">Logs and help</h3>
+<p>The log file is <code>dbriq.log</code> in the data folder (<code>%APPDATA%\dbriq</code> on the desktop). Attach it when you report a problem.</p>
+<p>Email <a href="mailto:support@dbriq.com">support@dbriq.com</a> with what you saw, a screenshot, your dbriq version and the log file. Please report security issues to <a href="mailto:security@dbriq.com">security@dbriq.com</a>.</p>
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="26" height="26"><span>dbriq</span></a>
+      <p style="margin-top:.9rem">Database monitoring and performance advice for SQL Server, Azure SQL, PostgreSQL and MySQL.</p>
+      <p>&copy; <span data-year>2026</span> dbriq</p>
+    </div>
+    <div>
+      <h2>Product</h2>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#platforms">Platforms</a></li>
+        <li><a href="/#security">Security</a></li>
+        <li><a href="/download.html">Download the beta</a></li>
+        <li><a href="/guides/setup.html">Setup guide</a></li>
+        <li><a href="/guides/user-guide.html">User guide</a></li>
+        <li><a href="/about.html">About dbriq</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:hello@dbriq.com">hello@dbriq.com</a></li>
+        <li><a href="mailto:support@dbriq.com">support@dbriq.com</a></li>
+        <li><a href="mailto:security@dbriq.com">security@dbriq.com</a></li>
+        <li><a href="/privacy.html">Privacy</a> and <a href="/terms.html">beta terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/auth.js"></script>
+</body>
+</html>

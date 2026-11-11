@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User guide | dbriq</title>
+<meta name="description" content="Every page of dbriq explained, from the Estate to reports and alerts.">
+<meta name="theme-color" content="#0E1C29">
+<link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:title" content="User guide | dbriq">
+<meta property="og:description" content="Every page of dbriq explained, from the Estate to reports and alerts.">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:url" content="https://dbriq.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="30" height="30"><span>dbriq</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#tour">Tour</a>
+      <a href="/#platforms">Platforms</a>
+      <a href="/#security">Security</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-actions" data-auth-nav>
+      <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
+      <a class="btn btn-primary btn-small" href="/account.html?mode=signup" data-when="out">Get the beta</a>
+      <span class="who" data-when="in" data-user-email hidden></span>
+      <a class="btn btn-primary btn-small" href="/download.html" data-when="in" hidden>Download</a>
+      <button class="btn btn-ghost btn-small" type="button" data-when="in" data-sign-out hidden>Sign out</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="guide-hero">
+  <div class="wrap">
+    <p class="guide-kicker">dbriq guides</p>
+    <h1>User guide</h1>
+    <p class="guide-lead">Every page of dbriq explained: what it shows, what the colours mean, and what to do with each finding.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/guides/dbriq-user-guide.pdf" download>Download PDF</a>
+      <a class="btn btn-ghost" href="/guides/setup.html">Setup guide</a>
+    </div>
+  </div>
+</section>
+<section class="band guide-band">
+  <div class="wrap guide-layout">
+    <nav class="toc" aria-label="On this page"><p class="toc-title">On this page</p><div class="toc">
+<ul>
+<li><a href="#finding-your-way-around">Finding your way around</a></li>
+<li><a href="#estate-your-whole-estate-on-one-page">Estate: your whole estate on one page</a></li>
+<li><a href="#database-page-what-is-wrong-and-what-to-do">Database page: what is wrong and what to do</a></li>
+<li><a href="#advisor-what-to-fix-first">Advisor: what to fix first</a></li>
+<li><a href="#response-time-where-the-time-goes">Response time: where the time goes</a></li>
+<li><a href="#queries-what-is-running-and-what-costs-most">Queries: what is running and what costs most</a></li>
+<li><a href="#locks-and-deadlocks">Locks and deadlocks</a></li>
+<li><a href="#health-checks-what-is-at-risk">Health checks: what is at risk</a></li>
+<li><a href="#cost-right-sizing">Cost: right-sizing</a></li>
+<li><a href="#reports">Reports</a></li>
+<li><a href="#compliance">Compliance</a></li>
+<li><a href="#alerts">Alerts</a></li>
+<li><a href="#need-help">Need help?</a></li>
+</ul>
+</div>
+</nav>
+    <article class="guide-body">
+<p>This guide explains every page of dbriq and how to use it day to day. If dbriq isn't installed yet, start with the <a href="/guides/setup.html">Setup guide</a>. Everything here also works on the built-in demo data, so you can follow along before adding a server.</p>
+<h2 id="finding-your-way-around">Finding your way around</h2>
+<p>Every page is one click from the left menu, and red badges on the menu show how many items need attention there. The dashboard refreshes every 15 seconds on its own.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Menu item</th>
+<th>Answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Estate</td>
+<td>Which databases need attention right now?</td>
+</tr>
+<tr>
+<td>Advisor</td>
+<td>What should I fix first, and how?</td>
+</tr>
+<tr>
+<td>Response time</td>
+<td>Where is the database time going, and on which queries?</td>
+</tr>
+<tr>
+<td>Locks &amp; deadlocks</td>
+<td>Who is blocking whom, now and in the past?</td>
+</tr>
+<tr>
+<td>Queries</td>
+<td>What is running now, and which queries cost the most?</td>
+</tr>
+<tr>
+<td>Health checks</td>
+<td>What is at risk: backups, CHECKDB, availability, jobs, space, configuration, security?</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>Where am I paying for capacity I don't use?</td>
+</tr>
+<tr>
+<td>Reports</td>
+<td>Inventory, health, index and other reports to read, print or download</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>Security audit and an auditor-ready report</td>
+</tr>
+<tr>
+<td>Alerts</td>
+<td>Everything that has fired, active and resolved</td>
+</tr>
+<tr>
+<td>Servers</td>
+<td>Add, edit, pause or remove servers</td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>Collection, alerts, notifications, AI, access and users</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="search">Search</h3>
+<p>Press <code>/</code> anywhere, or click the search box at the top, and type part of a server or database name. Pick a result to jump straight to its page.</p>
+<h3 id="time-ranges-and-time-travel">Time ranges and time travel</h3>
+<p>Pages with charts have <strong>1 h</strong>, <strong>6 h</strong>, <strong>24 h</strong> and <strong>7 d</strong> buttons, and <strong>Custom</strong> for any period. Click any point on a chart to see what was running and who was blocking whom at that moment. <strong>Back to now</strong> returns to live data.</p>
+<h3 id="status-colours">Status colours</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Critical (red)</td>
+<td>Something is failing or about to: act now</td>
+</tr>
+<tr>
+<td>Warning (amber)</td>
+<td>Outside normal limits: look at it today</td>
+</tr>
+<tr>
+<td>Unreachable (red)</td>
+<td>dbriq cannot connect to the server</td>
+</tr>
+<tr>
+<td>Healthy (green)</td>
+<td>Nothing found</td>
+</tr>
+<tr>
+<td>Paused (grey)</td>
+<td>Monitoring is switched off for this server</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="estate-your-whole-estate-on-one-page">Estate: your whole estate on one page</h2>
+<p>The Estate page lists every database, most urgent first, with its problem in words. Start each day here.</p>
+<figure><img src="/assets/img/screens/estate.webp" alt="The Estate page grouped by server, with critical and warning databases first and the top issue for each" width="1440" height="900" loading="lazy"><figcaption>The Estate page grouped by server, with critical and warning databases first and the top issue for each</figcaption></figure>
+<p><strong>Summary tiles</strong> at the top count databases that need attention, and split them into Critical, Warning, Unreachable, Healthy and Paused. Click a tile to filter the list.</p>
+<p><strong>Views:</strong></p>
+<ul>
+<li><strong>Problems only</strong> shows just the databases that need attention.</li>
+<li><strong>Group by server</strong> groups databases under their server. Each server row shows its platform, CPU, read latency, page life expectancy and batches per second, plus server-wide issues such as a failing Agent job or slow storage.</li>
+<li><strong>Flat list</strong> shows every database in one sortable list.</li>
+</ul>
+<p>Healthy databases are hidden until you click <strong>Show</strong>.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Status</td>
+<td>Critical, Warning, Unreachable, Healthy or Paused</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Current CPU with a one-hour trend line</td>
+</tr>
+<tr>
+<td>Data IO, Log</td>
+<td>Percentage of the data and log write limits in use (Azure SQL)</td>
+</tr>
+<tr>
+<td>Sessions, Blocked</td>
+<td>Open sessions, and how many are waiting on another session</td>
+</tr>
+<tr>
+<td>Longest query</td>
+<td>The longest-running query right now</td>
+</tr>
+<tr>
+<td>Free space</td>
+<td>Space left before the database or file is full</td>
+</tr>
+<tr>
+<td>Top issue</td>
+<td>The most important finding, in one line</td>
+</tr>
+</tbody>
+</table></div>
+<p>Click a column heading to sort, or a database name to open its page.</p>
+<h2 id="database-page-what-is-wrong-and-what-to-do">Database page: what is wrong and what to do</h2>
+<p>The database page explains each problem from cause to fix.</p>
+<figure><img src="/assets/img/screens/diagnosis.webp" alt="The database page for OrdersDB, with an active alert and a blocking diagnosis showing the session causing it and what to do" width="1440" height="900" loading="lazy"><figcaption>The database page for OrdersDB, with an active alert and a blocking diagnosis showing the session causing it and what to do</figcaption></figure>
+<p>It has these sections, top to bottom:</p>
+<ol>
+<li><strong>Active alerts</strong>, each with <strong>Open</strong> and <strong>Acknowledge</strong>.</li>
+<li><strong>Diagnosis</strong>: every bottleneck found in the latest collection. Each finding gives:<ul>
+<li>a severity, a category (such as Blocking or CPU) and a one-line title;</li>
+<li>an explanation in plain words, with the key figures;</li>
+<li>the session or query causing it, with <strong>Copy query</strong>;</li>
+<li><strong>What to do</strong>, including recent changes that may explain it, such as "Procedure dbo.usp_UpdateOrderStatus changed at 11:59";</li>
+<li><strong>Fix scripts</strong> to copy. Review a script before running it; dbriq never runs scripts itself.</li>
+</ul>
+</li>
+<li><strong>Activity</strong> charts for CPU, IO, log, sessions and more. Dashed lines are the alert thresholds.</li>
+<li><strong>Top waits</strong>: what the database spent its time waiting on.</li>
+<li><strong>Index maintenance</strong> (SQL Server): fragmented indexes and when they were last checked.</li>
+</ol>
+<p>Click a server name to open the <strong>server page</strong>, which shows server-wide waits, storage, memory and the server's databases.</p>
+<h2 id="advisor-what-to-fix-first">Advisor: what to fix first</h2>
+<p>The Advisor collects every bottleneck across all servers into one list, ranked by impact. Use the filters <strong>All</strong>, <strong>Critical</strong>, <strong>Warning</strong> and <strong>Opportunities</strong> (improvements that are not urgent).</p>
+<p>Each finding names the bottleneck (CPU, storage, log writes, memory, blocking or a plan regression), the queries behind it with their share of the load, why they are slow, and fix scripts to copy. With the AI assistant on, <strong>Explain with AI</strong> gives a longer explanation in context.</p>
+<h2 id="response-time-where-the-time-goes">Response time: where the time goes</h2>
+<p>dbriq samples every active session every 2 seconds and classifies what it is doing: running on CPU, reading from disk, waiting for a lock, writing the log, and so on.</p>
+<ul>
+<li><strong>Average active sessions by wait</strong> shows, over time, how many sessions were busy and on what. A tall band of lock waits at 10:15, for example, points straight at a blocking problem.</li>
+<li><strong>Queries by time spent waiting</strong> lists the queries that used the most database time, and where their time went.</li>
+<li><strong>Changes</strong> lists deployments and configuration changes as markers on the chart. Operators can click <strong>Add marker</strong> to record a release, and CI/CD pipelines can add markers with an API token.</li>
+</ul>
+<p>Click any point on the chart to travel back to that moment.</p>
+<h2 id="queries-what-is-running-and-what-costs-most">Queries: what is running and what costs most</h2>
+<p>The Queries page has two tabs. Use the server and database filter at the top to narrow both.</p>
+<p><strong>Running now</strong> lists every active session: how long it has run, its status and wait, CPU, reads, the user, machine and application that ran it, and the statement. Filter by <strong>Minimum duration</strong> (over 10 s, 1 min or 5 min) or by user, machine, app or text. Sleeping sessions with an open transaction are shown too, because they often cause blocking.</p>
+<p><strong>Top queries</strong> ranks queries over a period by total CPU (SQL Server) or database time (PostgreSQL, MySQL), executions, duration or reads. Each row shows runs per minute, average duration and average reads, plan problems as tags, and <strong>Show full query</strong> and <strong>Copy</strong>. Click a query to see its history over time.</p>
+<h3 id="execution-plans">Execution plans</h3>
+<p>For SQL Server, click <strong>Execution plan</strong> on a query to open the plan explorer.</p>
+<figure><img src="/assets/img/screens/plan.webp" alt="The execution plan panel: a live plan, what it does in sentences, and the graphical plan with the costly key lookup highlighted" width="1440" height="900" loading="lazy"><figcaption>The execution plan panel: a live plan, what it does in sentences, and the graphical plan with the costly key lookup highlighted</figcaption></figure>
+<ul>
+<li><strong>Source</strong>: a live plan with actual rows so far (for a running query), or an estimated plan from the plan cache or Query Store.</li>
+<li><strong>What the plan does</strong>: the plan explained in sentences, including where most of the cost is.</li>
+<li><strong>Graphical plan</strong>: laid out like SSMS, read right to left. Arrow thickness shows rows; click an operator for its properties.</li>
+<li><strong>Problems and fixes</strong>: issues such as key lookups, implicit conversions, spills or missing indexes, with severity and a fix.</li>
+</ul>
+<p><strong>Download .sqlplan</strong> saves the plan to open in SSMS.</p>
+<h2 id="locks-and-deadlocks">Locks and deadlocks</h2>
+<p>This page shows live lock chains across every server, plus their history. It has three tabs.</p>
+<p><strong>Live blocking</strong> shows each database where sessions are waiting on another session: how many are blocked and the longest wait. For each chain you see:</p>
+<ul>
+<li>the <strong>head blocker</strong> (the session at the top that everyone waits for), with its user, machine, application and statement;</li>
+<li><strong>Show blocking chain</strong>, which draws who waits for whom;</li>
+<li><strong>Idle sessions with an open transaction</strong>, the most common cause: an application started a transaction and never committed it.</li>
+</ul>
+<p>The database page's Diagnosis for the same problem includes what to do and a fix script.</p>
+<p><strong>Blocking history</strong> keeps past incidents: when each started, how long it lasted, the head blocker, how many sessions were blocked and the longest wait. Ongoing incidents are marked <strong>Ongoing</strong>. Filter by database, server, user, machine, application or statement, choose a <strong>Period</strong>, and click <strong>Show older incidents</strong> for more.</p>
+<p><strong>Deadlocks</strong> groups deadlocks with the same sessions, statements and objects into patterns, so one fix covers the whole group. Each pattern shows how many times it occurred, the victim, each session's statement and isolation level, <strong>What happened</strong> step by step, a <strong>Deadlock graph</strong>, and <strong>How to prevent it</strong>.</p>
+<p>Deadlock capture needs no setup on SQL Server, Managed Instance and Amazon RDS. On Azure SQL Database it needs the deadlock capture part of the setup script. PostgreSQL deadlocks are logged when <code>log_lock_waits</code> is on, as the PostgreSQL setup script recommends.</p>
+<h2 id="health-checks-what-is-at-risk">Health checks: what is at risk</h2>
+<p>Health checks find problems that are not slowing anything down yet but could cause an outage or data loss. They run every 10 minutes and are grouped into nine types:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Flags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full and differential backups</td>
+<td>Databases without a recent full or differential backup</td>
+</tr>
+<tr>
+<td>Log backups</td>
+<td>Log backups older than your recovery point objective (RPO)</td>
+</tr>
+<tr>
+<td>DBCC CHECKDB</td>
+<td>Databases not checked for corruption recently</td>
+</tr>
+<tr>
+<td>Availability Groups and geo-replication</td>
+<td>Unhealthy replicas, and lag above your limit</td>
+</tr>
+<tr>
+<td>SQL Agent jobs</td>
+<td>Failed jobs, and jobs running longer than your limit</td>
+</tr>
+<tr>
+<td>Capacity forecasts</td>
+<td>Databases, elastic pools, disks and Managed Instance storage that will fill up soon at the current growth rate</td>
+</tr>
+<tr>
+<td>Configuration best practices</td>
+<td>Settings that commonly cause problems, such as MAXDOP, cost threshold for parallelism, max server memory and tempdb files</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Too many sysadmin or superuser logins, risky options, missing encryption</td>
+</tr>
+<tr>
+<td>Support lifecycle</td>
+<td>Versions near or past their end-of-support date</td>
+</tr>
+</tbody>
+</table></div>
+<p>Set your own limits under <strong>Settings &gt; Health checks</strong>:</p>
+<ul>
+<li>full or differential backup at least every N hours;</li>
+<li>log backup at least every N minutes (your RPO);</li>
+<li>CHECKDB at least every N days;</li>
+<li>replica lag allowed, in seconds;</li>
+<li>Agent jobs flagged when running longer than N hours;</li>
+<li>capacity warning and critical when full within N days;</li>
+<li>maximum number of sysadmin or superuser logins.</li>
+</ul>
+<p>To silence a check for databases where it does not apply, add an exclusion such as <code>*/ReportServer*</code> next to that check.</p>
+<h2 id="cost-right-sizing">Cost: right-sizing</h2>
+<p>The Cost page compares what each cloud database or pool is sized for with what it actually uses, and suggests a change:</p>
+<ul>
+<li><strong>Downsize</strong>: consistently using far less than it pays for;</li>
+<li><strong>Add capacity</strong>: load is too high for its size;</li>
+<li><strong>Idle</strong>: databases in elastic pools that do almost nothing;</li>
+<li><strong>Right-sized</strong>: no change needed.</li>
+</ul>
+<p>The totals at the top show <strong>Potential savings</strong> per month and per year, and <strong>Capacity to add</strong> where load is too high. The figures use example prices until you enter your contract rates under <strong>Settings &gt; Cost rates</strong>.</p>
+<h2 id="reports">Reports</h2>
+<p>The Reports page builds a report for one server or database when you open it. Choose the report tab, then the server (and database, where it applies) and the period.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Report</th>
+<th>Answers</th>
+<th>Engines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Health report</td>
+<td>What happened in the last 24 hours or 7 days: alerts, blocking, deadlocks and changes in order, load over time, where database time went, and problems right now. Built from dbriq's own history, so it adds no load to the server.</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Indexes</td>
+<td>Indexes nobody reads, indexes that duplicate each other, and indexes the optimizer asked for</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Index usage by query</td>
+<td>Which statements use each index, and how: seeks, scans, lookups and updates</td>
+<td>SQL Server family</td>
+</tr>
+<tr>
+<td>Parameter sniffing</td>
+<td>Statements whose plan was compiled for an unrepresentative parameter value, checked against the column's histogram</td>
+<td>SQL Server family</td>
+</tr>
+<tr>
+<td>Application behaviour: Client timeouts</td>
+<td>Statements the application gave up on, with the likely reason</td>
+<td>SQL Server family</td>
+</tr>
+<tr>
+<td>Application behaviour: Chatty statements</td>
+<td>How often each statement runs against what each call costs; cheap statements that run constantly usually point to an application loop</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Application behaviour: Connections</td>
+<td>New logins per second, connection pooling and idle sessions, per application</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>A complete record of a server or database: hardware, version, configuration, databases, files, security, jobs and availability</td>
+<td>All</td>
+</tr>
+</tbody>
+</table></div>
+<figure><img src="/assets/img/screens/inventory.webp" alt="The inventory report for a server, ready to print or download" width="1440" height="900" loading="lazy"><figcaption>The inventory report for a server, ready to print or download</figcaption></figure>
+<p>When a report is not available for a server, the page says so.</p>
+<h3 id="downloading">Downloading</h3>
+<ul>
+<li><strong>Download report (HTML)</strong> gives a single file with charts. Open it in a browser and print to PDF.</li>
+<li><strong>Download workbook (Excel)</strong> gives one sheet per section, with filters, for a CMDB, asset register or your own analysis.</li>
+<li>The Inventory tab also offers <strong>All servers (Excel)</strong> and <strong>All servers (HTML report)</strong> for the whole estate at once.</li>
+</ul>
+<p>Reports use short connections with a 5-second lock timeout and low deadlock priority, so they do not get in the way of production work.</p>
+<h2 id="compliance">Compliance</h2>
+<p>The Compliance page has two parts.</p>
+<p><strong>Security audit</strong> reviews each server's security settings: privileged logins and roles, encryption at rest (TDE) and in transit, risky configuration options, and audit logging. Click <strong>Run again</strong> after making changes.</p>
+<p><strong>Compliance report for auditors</strong> maps the findings to controls under five headings: access to data, data protection, secure configuration, audit logging, and operations and change management. It includes the evidence for each control and a sign-off block. Choose the scope and period, then download it as an HTML report (prints to PDF for the audit file) or an Excel workbook with sheets for the summary, controls and evidence, plus users and admin actions for admins.</p>
+<p>Every download is recorded in dbriq's audit log. PostgreSQL and MySQL servers get the controls that apply to them: privileged roles, encryption in transit and connection logging.</p>
+<h2 id="alerts">Alerts</h2>
+<p>The Alerts page lists every alert dbriq has raised, with its state, what it was, when it was raised and how long it lasted. Filter with <strong>All</strong>, <strong>Active</strong> or <strong>Resolved</strong>.</p>
+<ul>
+<li><strong>Acknowledge</strong> tells your team someone is on it. The alert stays active until the problem clears, but is marked <strong>Acknowledged</strong>. <strong>Acknowledge all active</strong> does every open alert at once.</li>
+<li>Alerts <strong>resolve by themselves</strong> when the condition clears; you don't close them by hand.</li>
+<li><strong>Clear resolved</strong> tidies the list: clear the ones you tick, those resolved more than 24 hours ago, or those resolved more than 7 days ago. Active alerts are never cleared.</li>
+</ul>
+<h3 id="where-alerts-come-from">Where alerts come from</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Fires when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Threshold</td>
+<td>A metric passes the limit you set under Settings &gt; Alert thresholds, such as CPU above 90%</td>
+</tr>
+<tr>
+<td>Anomaly</td>
+<td>A metric is far above what is normal for that weekday and hour, such as "CPU is 85, against a normal 30 ± 8 for Mondays at 10:00"</td>
+</tr>
+<tr>
+<td>Health</td>
+<td>A health check fails, such as a missed log backup or a failed Agent job</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>dbriq cannot reach a server</td>
+</tr>
+</tbody>
+</table></div>
+<p>Alerts are sent to every notification route that matches the server and severity (see step 4 of the <a href="/guides/setup.html">Setup guide</a>). No new alerts or notifications are raised during maintenance windows.</p>
+<h2 id="need-help">Need help?</h2>
+<p>Email <a href="mailto:support@dbriq.com">support@dbriq.com</a> with what you saw and a screenshot. The <a href="/guides/setup.html">Setup guide</a> has a troubleshooting section for connection and data problems.</p>
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="26" height="26"><span>dbriq</span></a>
+      <p style="margin-top:.9rem">Database monitoring and performance advice for SQL Server, Azure SQL, PostgreSQL and MySQL.</p>
+      <p>&copy; <span data-year>2026</span> dbriq</p>
+    </div>
+    <div>
+      <h2>Product</h2>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#platforms">Platforms</a></li>
+        <li><a href="/#security">Security</a></li>
+        <li><a href="/download.html">Download the beta</a></li>
+        <li><a href="/guides/setup.html">Setup guide</a></li>
+        <li><a href="/guides/user-guide.html">User guide</a></li>
+        <li><a href="/about.html">About dbriq</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:hello@dbriq.com">hello@dbriq.com</a></li>
+        <li><a href="mailto:support@dbriq.com">support@dbriq.com</a></li>
+        <li><a href="mailto:security@dbriq.com">security@dbriq.com</a></li>
+        <li><a href="/privacy.html">Privacy</a> and <a href="/terms.html">beta terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guides | dbriq</title>
+<meta name="description" content="Setup and user guides for dbriq, to read online or download as PDF.">
+<meta name="theme-color" content="#0E1C29">
+<link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:title" content="Guides | dbriq">
+<meta property="og:description" content="Setup and user guides for dbriq, to read online or download as PDF.">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:url" content="https://dbriq.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="30" height="30"><span>dbriq</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#tour">Tour</a>
+      <a href="/#platforms">Platforms</a>
+      <a href="/#security">Security</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+    </nav>
+    <div class="header-actions" data-auth-nav>
+      <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
+      <a class="btn btn-primary btn-small" href="/account.html?mode=signup" data-when="out">Get the beta</a>
+      <span class="who" data-when="in" data-user-email hidden></span>
+      <a class="btn btn-primary btn-small" href="/download.html" data-when="in" hidden>Download</a>
+      <button class="btn btn-ghost btn-small" type="button" data-when="in" data-sign-out hidden>Sign out</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="guide-hero">
+  <div class="wrap">
+    <h1>Guides</h1>
+    <p class="guide-lead">Everything you need to install dbriq and get the most from it. Read online, or download a PDF to keep or share with your team.</p>
+  </div>
+</section>
+<section class="band guide-band">
+  <div class="wrap guide-cards">
+    <article class="guide-card">
+      <h2>Setup guide</h2>
+      <p>Install dbriq, create the read-only monitoring login, add your servers, send alerts to Slack, Teams or PagerDuty, and share dbriq with your team. Includes troubleshooting.</p>
+      <p class="guide-meta">For whoever installs dbriq. About 15 minutes.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="/guides/setup.html">Read online</a><a class="btn btn-quiet" href="/guides/dbriq-setup-guide.pdf" download>Download PDF</a></div>
+    </article>
+    <article class="guide-card">
+      <h2>User guide</h2>
+      <p>The Estate, database pages, Advisor, response time, queries and execution plans, locks and deadlocks, health checks, cost, reports, compliance and alerts.</p>
+      <p class="guide-meta">For everyone who uses the dashboard.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="/guides/user-guide.html">Read online</a><a class="btn btn-quiet" href="/guides/dbriq-user-guide.pdf" download>Download PDF</a></div>
+    </article>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/" aria-label="dbriq home"><img src="/assets/img/mark.svg" alt="" width="26" height="26"><span>dbriq</span></a>
+      <p style="margin-top:.9rem">Database monitoring and performance advice for SQL Server, Azure SQL, PostgreSQL and MySQL.</p>
+      <p>&copy; <span data-year>2026</span> dbriq</p>
+    </div>
+    <div>
+      <h2>Product</h2>
+      <ul>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#platforms">Platforms</a></li>
+        <li><a href="/#security">Security</a></li>
+        <li><a href="/download.html">Download the beta</a></li>
+        <li><a href="/guides/setup.html">Setup guide</a></li>
+        <li><a href="/guides/user-guide.html">User guide</a></li>
+        <li><a href="/about.html">About dbriq</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="mailto:hello@dbriq.com">hello@dbriq.com</a></li>
+        <li><a href="mailto:support@dbriq.com">support@dbriq.com</a></li>
+        <li><a href="mailto:security@dbriq.com">security@dbriq.com</a></li>
+        <li><a href="/privacy.html">Privacy</a> and <a href="/terms.html">beta terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/auth.js"></script>
+</body>
+</html>

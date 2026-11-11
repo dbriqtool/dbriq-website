@@ -336,3 +336,73 @@ code, .mono { font-family: var(--mono); font-size: .92em; }
 .founder .avatar { width: 120px; height: 120px; }
 .builder .avatar { width: 80px; height: 80px; }
 @media (max-width: 420px) { .founder { flex-direction: column; } }
+
+/* ---------- guides ---------- */
+.guide-hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 5vw, 3rem); }
+.guide-kicker { color: var(--pulse); font-weight: 600; font-size: .95rem; margin: 0 0 .6rem; }
+.guide-hero h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); }
+.guide-lead { color: var(--dim); font-size: 1.2rem; margin-top: 1rem; }
+.btn-quiet { color: var(--band-text); border-color: var(--band-line); background: transparent; }
+.btn-quiet:hover { border-color: var(--band-muted); }
+
+.guide-band { padding-top: clamp(2rem, 5vw, 3.5rem); }
+.guide-layout { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.toc { position: sticky; top: 86px; max-height: calc(100vh - 110px); overflow-y: auto; font-size: .93rem; }
+.toc-title { font-weight: 600; margin: 0 0 .6rem; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc li { margin: 0; }
+.toc a { display: block; padding: .32rem 0 .32rem .8rem; border-left: 2px solid var(--band-line); color: var(--band-muted); text-decoration: none; }
+.toc a:hover { color: var(--band-text); border-left-color: var(--pulse); }
+@media (max-width: 900px) { .guide-layout { grid-template-columns: 1fr; } .toc { position: static; max-height: none; } }
+
+.guide-body { max-width: 50rem; }
+.guide-body > p:first-child { font-size: 1.15rem; }
+.guide-body h2 { font-size: clamp(1.5rem, 2.6vw, 1.95rem); margin: 3rem 0 1rem; padding-top: 1.4rem; border-top: 1px solid var(--band-line); scroll-margin-top: 86px; }
+.guide-body h2:first-of-type { margin-top: 2rem; }
+.guide-body h3 { font-size: 1.2rem; margin: 2rem 0 .7rem; }
+.guide-body p, .guide-body li { max-width: 46rem; }
+.guide-body ol, .guide-body ul { padding-left: 1.4rem; margin: 0 0 1.1rem; }
+.guide-body li { margin-bottom: .45rem; }
+.guide-body li > ul { margin-top: .45rem; }
+.guide-body code { background: var(--band-2); border: 1px solid var(--band-line); border-radius: 5px; padding: .05rem .35rem; font-size: .88em; }
+.guide-body pre { background: var(--night); color: var(--drum); border-radius: 10px; padding: 1rem 1.2rem; overflow-x: auto; margin: 0 0 1.2rem; }
+.guide-body pre code { background: none; border: 0; padding: 0; color: inherit; font-size: .9rem; }
+.table-scroll { overflow-x: auto; margin: 0 0 1.4rem; }
+.guide-body table { width: 100%; border-collapse: collapse; font-size: .96rem; }
+.guide-body th, .guide-body td { text-align: left; vertical-align: top; padding: .65rem .9rem .65rem 0; border-bottom: 1px solid var(--band-line); }
+.guide-body th { font-weight: 600; font-size: .88rem; color: var(--band-muted); }
+.guide-body td:first-child { font-weight: 600; min-width: 9rem; }
+.guide-body figure { margin: 1.4rem 0 1.8rem; }
+.guide-body figure img { border-radius: 10px; border: 1px solid var(--band-line); box-shadow: 0 10px 30px rgba(20, 48, 74, .12); }
+.guide-body figcaption { color: var(--band-muted); font-size: .9rem; margin-top: .6rem; }
+
+.guide-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
+.guide-card { background: var(--band-2); border: 1px solid var(--band-line); border-radius: 14px; padding: clamp(1.4rem, 3vw, 2rem); }
+.guide-card h2 { font-size: 1.6rem; margin-bottom: .8rem; }
+.guide-card p { color: var(--band-muted); }
+.guide-card .guide-meta { font-size: .93rem; font-weight: 600; color: var(--band-text); }
+.guide-card .hero-actions { margin-top: 1.4rem; }
+@media (max-width: 760px) { .guide-cards { grid-template-columns: 1fr; } }
+
+/* ---------- printing a guide (also how the PDFs are made) ---------- */
+@media print {
+  @page { size: A4; margin: 18mm 16mm 20mm; }
+  :root { --band: #fff; --band-2: #F2F5F9; --band-text: #14304A; --band-muted: #4F6178; --band-line: #D3DDE8; }
+  body { background: #fff; color: #14304A; font-family: Inter, "IBM Plex Sans", sans-serif; font-size: 10.5pt; }
+  h1, h2, h3 { font-family: "Inter Display", Inter, sans-serif; }
+  .site-header, .site-footer, .skip, .toc, .guide-hero .hero-actions { display: none !important; }
+  .guide-hero { background: #fff; padding: 0 0 6mm; border-bottom: 2px solid #22C7A0; }
+  .guide-hero h1 { color: #14304A; font-size: 28pt; }
+  .guide-lead { color: #4F6178; font-size: 12pt; }
+  .band { padding: 6mm 0 0; }
+  .wrap { width: 100%; }
+  .guide-layout { display: block; }
+  .guide-body { max-width: none; }
+  .guide-body h2 { break-after: avoid; margin-top: 9mm; font-size: 17pt; }
+  .guide-body h3 { break-after: avoid; font-size: 12.5pt; }
+  .guide-body tr, .guide-body figure, .guide-body pre { break-inside: avoid; }
+  .guide-body figure img { box-shadow: none; }
+  .guide-body a { color: #1667C9; text-decoration: none; }
+}
+.band a.btn-primary { color: var(--night); }
+.band a.btn-quiet { color: var(--band-text); }
