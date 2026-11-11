@@ -45,7 +45,10 @@
       document.querySelector("[data-checksum]").textContent = beta.sha256;
       document.querySelector("[data-checksum-row]").hidden = false;
     }
-    var name = session.user.user_metadata && session.user.user_metadata.full_name;
+        document.querySelectorAll("[data-exe-name]").forEach(function (el) {
+      el.textContent = (beta.file || "dbriqSetup.exe").replace(/\.zip$/i, ".exe");
+    });
+     var name = session.user.user_metadata && session.user.user_metadata.full_name;
     if (name) document.querySelector("h1").textContent = "Welcome, " + name.split(" ")[0] + ". Here's the beta.";
     loading.hidden = true;
     ready.hidden = false;
