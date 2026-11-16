@@ -13,7 +13,7 @@ window.DBRIQ = {
     version: "1.1.0 beta",
     released: "16 November 2026",
     size: "25 MB",                                  // for example "86 MB"; leave empty to hide
-    sha256: "497773BCBFF5097AD154156BC166A44E2CA04A73A0B1147FD02911A2588662A3",                                // optional: PowerShell  Get-FileHash .\dbriqSetup.exe
+    sha256: "6E963A6DC13E04122C2175D9B63D3C3E93091B03AC41437AAA02F5350EA0F1FA",                                // optional: PowerShell  Get-FileHash .\dbriqSetup.exe
     bucket: "beta",
     file: "dbriqSetup-1.1.0.zip",              // the file name inside the bucket
     downloadName: "dbriqSetup-1.1.0-beta.zip"  // the name it gets on the visitor's computer
