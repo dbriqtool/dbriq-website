@@ -5,16 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guides | dbriq</title>
 <meta name="description" content="Setup and user guides for dbriq, to read online or download as PDF.">
-<meta name="theme-color" content="#0E1C29">
+<meta name="theme-color" content="#110F17">
 <link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <meta property="og:title" content="Guides | dbriq">
 <meta property="og:description" content="Setup and user guides for dbriq, to read online or download as PDF.">
-<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/home.webp">
 <meta property="og:url" content="https://dbriq.com/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
 <link rel="stylesheet" href="/assets/css/site.css">
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -30,7 +28,6 @@
       <a href="/#security">Security</a>
       <a href="/#faq">FAQ</a>
       <a href="/guides/">Guides</a>
-      <a href="/about.html">About</a>
     </nav>
     <div class="header-actions" data-auth-nav>
       <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
@@ -42,26 +39,38 @@
   </div>
 </header>
 <main id="main">
-<section class="guide-hero">
+<section class="guide-hero2">
+  <div class="hero2-bg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
   <div class="wrap">
+    <p class="eyebrow-pill"><span class="live-dot" aria-hidden="true"></span>Read online or download as PDF</p>
     <h1>Guides</h1>
-    <p class="guide-lead">Everything you need to install dbriq and get the most from it. Read online, or download a PDF to keep or share with your team.</p>
+    <p class="guide-lead">Everything you need to install dbriq and get the most from it.</p>
   </div>
 </section>
 <section class="band guide-band">
-  <div class="wrap guide-cards">
-    <article class="guide-card">
-      <h2>Setup guide</h2>
-      <p>Install dbriq, create the read-only monitoring login, add your servers, send alerts to Slack, Teams or PagerDuty, and share dbriq with your team. Includes troubleshooting.</p>
-      <p class="guide-meta">For whoever installs dbriq. About 15 minutes.</p>
-      <div class="hero-actions"><a class="btn btn-primary" href="/guides/setup.html">Read online</a><a class="btn btn-quiet" href="/guides/dbriq-setup-guide.pdf" download>Download PDF</a></div>
-    </article>
-    <article class="guide-card">
-      <h2>User guide</h2>
-      <p>The Estate, database pages, Advisor, response time, queries and execution plans, locks and deadlocks, health checks, cost, reports, compliance and alerts.</p>
-      <p class="guide-meta">For everyone who uses the dashboard.</p>
-      <div class="hero-actions"><a class="btn btn-primary" href="/guides/user-guide.html">Read online</a><a class="btn btn-quiet" href="/guides/dbriq-user-guide.pdf" download>Download PDF</a></div>
-    </article>
+  <div class="wrap">
+    <div class="guide-cards2">
+      <article class="gcard reveal">
+        <div class="gcard-visual gv-steps" aria-hidden="true">
+          <div class="gv-row"><span class="on">1</span><i></i><span>2</span><i></i><span>3</span><i></i><span>4</span><i></i><span>5</span></div>
+          <p>Install · Login · Servers · Alerts · Team</p>
+        </div>
+        <p class="kicker">Guide 1 of 2 · about 15 minutes</p>
+        <h2>Setup guide</h2>
+        <p>Install dbriq, create the read-only monitoring login, add your servers, send alerts to Slack, Teams or PagerDuty, and share dbriq with your team. Includes troubleshooting.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="/guides/setup.html">Read online</a><a class="btn btn-quiet" href="/guides/dbriq-setup-guide.pdf" download>Download PDF</a></div>
+        <ul class="quick"><li><a href="/guides/setup.html#step-1-install-dbriq">Install</a></li><li><a href="/guides/setup.html#step-2-create-the-monitoring-login">Monitoring login</a></li><li><a href="/guides/setup.html#step-3-add-your-servers">Add servers</a></li><li><a href="/guides/setup.html#step-4-set-up-alerts-and-settings">Alerts</a></li><li><a href="/guides/setup.html#troubleshooting">Troubleshooting</a></li></ul>
+      </article>
+      <article class="gcard reveal">
+        <div class="gcard-visual gv-shot" aria-hidden="true"><img src="/assets/img/screens/home.webp" width="1440" height="900" alt="" loading="lazy"></div>
+        <p class="kicker">Guide 2 of 2 · every page explained</p>
+        <h2>User guide</h2>
+        <p>Home, database pages, the Advisor, response time, queries and execution plans, locks and deadlocks, health checks, cost, reports, compliance and alerts.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="/guides/user-guide.html">Read online</a><a class="btn btn-quiet" href="/guides/dbriq-user-guide.pdf" download>Download PDF</a></div>
+        <ul class="quick"><li><a href="/guides/user-guide.html#estate-your-whole-estate-on-one-page">Home</a></li><li><a href="/guides/user-guide.html#database-page-what-is-wrong-and-what-to-do">Database page</a></li><li><a href="/guides/user-guide.html#queries-what-is-running-and-what-costs-most">Queries</a></li><li><a href="/guides/user-guide.html#locks-and-deadlocks">Locks</a></li><li><a href="/guides/user-guide.html#alerts">Alerts</a></li></ul>
+      </article>
+    </div>
+    <div class="help-strip reveal"><div><h2>Stuck on something?</h2><p>Email support@dbriq.com with what you saw and a screenshot.</p></div><a class="btn btn-quiet" href="mailto:support@dbriq.com">Email support</a></div>
   </div>
 </section>
 </main>
@@ -81,7 +90,6 @@
         <li><a href="/download.html">Download the beta</a></li>
         <li><a href="/guides/setup.html">Setup guide</a></li>
         <li><a href="/guides/user-guide.html">User guide</a></li>
-        <li><a href="/about.html">About dbriq</a></li>
       </ul>
     </div>
     <div>
@@ -98,5 +106,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/auth.js"></script>
+<script src="/assets/js/guides.js"></script>
 </body>
 </html>

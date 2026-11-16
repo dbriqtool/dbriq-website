@@ -5,16 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Setup guide | dbriq</title>
 <meta name="description" content="Install dbriq, create the monitoring login, add servers and set up alerts.">
-<meta name="theme-color" content="#0E1C29">
+<meta name="theme-color" content="#110F17">
 <link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <meta property="og:title" content="Setup guide | dbriq">
 <meta property="og:description" content="Install dbriq, create the monitoring login, add servers and set up alerts.">
-<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/home.webp">
 <meta property="og:url" content="https://dbriq.com/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
 <link rel="stylesheet" href="/assets/css/site.css">
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -30,7 +28,6 @@
       <a href="/#security">Security</a>
       <a href="/#faq">FAQ</a>
       <a href="/guides/">Guides</a>
-      <a href="/about.html">About</a>
     </nav>
     <div class="header-actions" data-auth-nav>
       <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
@@ -41,14 +38,18 @@
     </div>
   </div>
 </header>
+<div class="read-progress" aria-hidden="true"><span></span></div>
 <main id="main">
-<section class="guide-hero">
+<section class="guide-hero2">
+  <div class="hero2-bg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span></div>
   <div class="wrap">
-    <p class="guide-kicker">dbriq guides</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/guides/">Guides</a><span aria-hidden="true">/</span><span>Setup guide</span></nav>
+    <p class="eyebrow-pill"><span class="live-dot" aria-hidden="true"></span>Guide 1 of 2</p>
     <h1>Setup guide</h1>
     <p class="guide-lead">Install dbriq, connect your servers and set up alerts. About 15 minutes from download to your first findings.</p>
+    <ul class="guide-meta2"><li>About 15 minutes</li><li>Windows 10 and 11</li><li>No admin rights needed</li></ul>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="/guides/dbriq-setup-guide.pdf" download>Download PDF</a>
+      <a class="btn btn-primary btn-glow" href="/guides/dbriq-setup-guide.pdf" download>Download PDF</a>
       <a class="btn btn-ghost" href="/guides/user-guide.html">User guide</a>
     </div>
   </div>
@@ -68,7 +69,8 @@
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 </div>
-</nav>
+
+      <a class="toc-pdf" href="/guides/dbriq-setup-guide.pdf" download>Download as PDF</a></nav>
     <article class="guide-body">
 <p>dbriq monitors SQL Server, Azure SQL, PostgreSQL and MySQL from your own Windows PC or server, and tells you in plain words what is wrong and how to fix it. This guide takes you from download to your first findings in about 15 minutes. When you are done, the <a href="/guides/user-guide.html">User guide</a> explains every page of the app.</p>
 <h2 id="what-you-need">What you need</h2>
@@ -129,7 +131,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>dbriq is in beta. Start with a non-production server, then add production once you are comfortable with what it does.</p>
+<blockquote>
+<p><strong>Beta:</strong> start with a non-production server, then add production once you are comfortable with what it does.</p>
+</blockquote>
 <h2 id="step-1-install-dbriq">Step 1: Install dbriq</h2>
 <p>Installing takes about two minutes and needs no administrator rights. dbriq installs into your own user folder and opens with demo data, so you can look around before connecting a real server.</p>
 <ol>
@@ -142,9 +146,11 @@
 <li>Leave <strong>Open dbriq</strong> ticked and click <strong>Finish</strong>.</li>
 </ol>
 <p>dbriq opens in your browser at http://localhost:8050 and adds a dbriq icon to the Windows notification area (system tray). Right-click that icon for <strong>Open dashboard</strong> or <strong>Quit dbriq</strong>.</p>
-<p>On a company laptop, a message such as "Your organization has blocked this app" means your IT team must approve dbriq first. Send them the download link and the SHA-256 checksum shown on the download page.</p>
+<blockquote>
+<p><strong>Company laptop?</strong> A message such as "Your organization has blocked this app" means your IT team must approve dbriq first. Send them the download link and the SHA-256 checksum shown on the download page.</p>
+</blockquote>
 <h3 id="the-demo-estate">The demo estate</h3>
-<p>Until you add your first server, dbriq shows a built-in demo: seven servers and about 100 databases with realistic problems such as blocking, a slow query and a log filling up. A <strong>Demo data</strong> label sits at the bottom of the left menu. Use it to learn the pages in the <a href="/guides/user-guide.html">User guide</a>. The demo switches off automatically when you add a real server.</p>
+<p>Until you add your first server, dbriq shows a built-in demo: seven servers and about 100 databases with realistic problems such as blocking, a slow query and a log filling up. A <strong>Demo data</strong> label sits at the right end of the top menu. Use it to learn the pages in the <a href="/guides/user-guide.html">User guide</a>. The demo switches off automatically when you add a real server.</p>
 <h2 id="step-2-create-the-monitoring-login">Step 2: Create the monitoring login</h2>
 <p>dbriq connects to each server with its own read-only login, named <code>dbriq</code> in the scripts. Run the matching script once per server as an administrator. The scripts are in the Start menu under <strong>dbriq &gt; Setup scripts</strong>.</p>
 <p>In every script, replace <code>&lt;use a strong password&gt;</code> with a real password and keep it for step 3. None of the scripts give dbriq permission to change data or settings.</p>
@@ -264,7 +270,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>Passwords are stored in Windows Credential Manager, never in a settings file.</p>
+<blockquote>
+<p><strong>Security:</strong> passwords are stored in Windows Credential Manager, never in a settings file.</p>
+</blockquote>
 <h3 id="what-happens-next">What happens next</h3>
 <p>dbriq collects on four schedules, all changeable under <strong>Settings</strong>:</p>
 <div class="table-scroll"><table>
@@ -339,7 +347,9 @@
 <p>It asks for the first admin's password, then sets up the data folder, background service, IIS site and firewall. To try it before you have a certificate, use <code>-SelfSignedForTesting</code> instead of <code>-CertificateThumbprint</code>; browsers will warn.</p>
 <p>Then open the address, sign in as the admin, and add each DBA under <strong>Settings &gt; Users</strong> with a temporary password.</p>
 <p>To sign in to SQL Server with Windows authentication, run the service as a group managed service account with <code>-ServiceAccount 'CORP\gmsa-dbriq$'</code>. Use <code>-AppPort</code> if port 8050 is taken.</p>
+<blockquote>
 <p><strong>Back up <code>C:\ProgramData\dbriq</code>, including <code>keys\vault.key</code>.</strong> Without that key, the saved server passwords cannot be decrypted.</p>
+</blockquote>
 <h3 id="linux-or-docker">Linux or Docker</h3>
 <p><code>deploy/linux/docker-compose.https.yml</code> runs dbriq with Caddy in front:</p>
 <ol>
@@ -531,7 +541,6 @@
         <li><a href="/download.html">Download the beta</a></li>
         <li><a href="/guides/setup.html">Setup guide</a></li>
         <li><a href="/guides/user-guide.html">User guide</a></li>
-        <li><a href="/about.html">About dbriq</a></li>
       </ul>
     </div>
     <div>
@@ -548,5 +557,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/auth.js"></script>
+<script src="/assets/js/guides.js"></script>
 </body>
 </html>

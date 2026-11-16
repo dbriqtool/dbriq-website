@@ -5,16 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download the beta | dbriq</title>
 <meta name="description" content="Download the dbriq beta for Windows.">
-<meta name="theme-color" content="#0E1C29">
+<meta name="theme-color" content="#110F17">
 <link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <meta property="og:title" content="Download the beta | dbriq">
 <meta property="og:description" content="Download the dbriq beta for Windows.">
-<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/home.webp">
 <meta property="og:url" content="https://dbriq.com/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
 <link rel="stylesheet" href="/assets/css/site.css">
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -30,7 +28,6 @@
       <a href="/#security">Security</a>
       <a href="/#faq">FAQ</a>
       <a href="/guides/">Guides</a>
-      <a href="/about.html">About</a>
     </nav>
     <div class="header-actions" data-auth-nav>
       <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
@@ -55,13 +52,14 @@
         <div><dt>Released</dt><dd data-released></dd></div>
         <div><dt>File</dt><dd data-size></dd></div>
       </dl>
-      <button class="btn btn-primary" type="button" data-download>Download dbriq (ZIP)</button>
+      <button class="btn btn-primary btn-glow" type="button" data-download>Download dbriq (ZIP)</button>
       <p class="checksum" data-checksum-row hidden style="margin-top:1rem">SHA-256: <span data-checksum></span></p>
 
       <h2>Install</h2>
       <ol>
-        <li>Right-click the downloaded ZIP and choose <strong>Extract All</strong>, then run <strong data-exe-name>dbriqSetup.exe</strong> from the extracted folder.</li>
-        <li>Windows may say the publisher is unknown while dbriq is in beta: choose <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+        <li>Before opening the ZIP, right-click it, choose <strong>Properties</strong>, tick <strong>Unblock</strong> and click <strong>OK</strong>. This avoids the blue Windows warning.</li>
+        <li>Right-click the ZIP, choose <strong>Extract All</strong>, then run <strong data-exe-name>dbriqSetup.exe</strong> from the extracted folder.</li>
+        <li>If Windows still says the publisher is unknown, choose <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
         <li>dbriq opens in your browser with demo data, so you can look around first.</li>
         <li>To monitor SQL Server you need <strong>Microsoft ODBC Driver 18 for SQL Server</strong>. The installer offers the download if it is missing.</li>
       </ol>
@@ -75,7 +73,7 @@
 
       <h2>Help</h2>
       <ul class="plain">
-                   <li>Step-by-step help: <a href="/guides/setup.html" style="color:var(--drum)">Setup guide</a> and <a href="/guides/user-guide.html" style="color:var(--drum)">User guide</a> (also as PDF)</li>
+        <li>Step-by-step help: <a href="/guides/setup.html" style="color:var(--drum)">Setup guide</a> and <a href="/guides/user-guide.html" style="color:var(--drum)">User guide</a> (also as PDF)</li>
         <li>Questions or bugs: <a href="mailto:support@dbriq.com" style="color:var(--drum)">support@dbriq.com</a></li>
         <li>Security issues: <a href="mailto:security@dbriq.com" style="color:var(--drum)">security@dbriq.com</a></li>
       </ul>
@@ -98,7 +96,6 @@
         <li><a href="/download.html">Download the beta</a></li>
         <li><a href="/guides/setup.html">Setup guide</a></li>
         <li><a href="/guides/user-guide.html">User guide</a></li>
-        <li><a href="/about.html">About dbriq</a></li>
       </ul>
     </div>
     <div>

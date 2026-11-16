@@ -5,16 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>User guide | dbriq</title>
 <meta name="description" content="Every page of dbriq explained, from the Estate to reports and alerts.">
-<meta name="theme-color" content="#0E1C29">
+<meta name="theme-color" content="#110F17">
 <link rel="icon" href="/assets/img/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <meta property="og:title" content="User guide | dbriq">
 <meta property="og:description" content="Every page of dbriq explained, from the Estate to reports and alerts.">
-<meta property="og:image" content="https://dbriq.com/assets/img/screens/diagnosis.webp">
+<meta property="og:image" content="https://dbriq.com/assets/img/screens/home.webp">
 <meta property="og:url" content="https://dbriq.com/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
 <link rel="stylesheet" href="/assets/css/site.css">
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -30,7 +28,6 @@
       <a href="/#security">Security</a>
       <a href="/#faq">FAQ</a>
       <a href="/guides/">Guides</a>
-      <a href="/about.html">About</a>
     </nav>
     <div class="header-actions" data-auth-nav>
       <a class="btn btn-ghost btn-small" href="/account.html" data-when="out">Sign in</a>
@@ -41,14 +38,18 @@
     </div>
   </div>
 </header>
+<div class="read-progress" aria-hidden="true"><span></span></div>
 <main id="main">
-<section class="guide-hero">
+<section class="guide-hero2">
+  <div class="hero2-bg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span></div>
   <div class="wrap">
-    <p class="guide-kicker">dbriq guides</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/guides/">Guides</a><span aria-hidden="true">/</span><span>User guide</span></nav>
+    <p class="eyebrow-pill"><span class="live-dot" aria-hidden="true"></span>Guide 2 of 2</p>
     <h1>User guide</h1>
     <p class="guide-lead">Every page of dbriq explained: what it shows, what the colours mean, and what to do with each finding.</p>
+    <ul class="guide-meta2"><li>Every page explained</li><li>With real screenshots</li><li>Works on the demo data</li></ul>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="/guides/dbriq-user-guide.pdf" download>Download PDF</a>
+      <a class="btn btn-primary btn-glow" href="/guides/dbriq-user-guide.pdf" download>Download PDF</a>
       <a class="btn btn-ghost" href="/guides/setup.html">Setup guide</a>
     </div>
   </div>
@@ -72,11 +73,12 @@
 <li><a href="#need-help">Need help?</a></li>
 </ul>
 </div>
-</nav>
+
+      <a class="toc-pdf" href="/guides/dbriq-user-guide.pdf" download>Download as PDF</a></nav>
     <article class="guide-body">
 <p>This guide explains every page of dbriq and how to use it day to day. If dbriq isn't installed yet, start with the <a href="/guides/setup.html">Setup guide</a>. Everything here also works on the built-in demo data, so you can follow along before adding a server.</p>
 <h2 id="finding-your-way-around">Finding your way around</h2>
-<p>Every page is one click from the left menu, and red badges on the menu show how many items need attention there. The dashboard refreshes every 15 seconds on its own.</p>
+<p>Every page is one click from the menu across the top, and red badges on the menu show how many items need attention there. In a narrow window the menu shows icons only. The dashboard refreshes every 15 seconds on its own.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -136,9 +138,11 @@
 </tbody>
 </table></div>
 <h3 id="search">Search</h3>
-<p>Press <code>/</code> anywhere, or click the search box at the top, and type part of a server or database name. Pick a result to jump straight to its page.</p>
+<p>Press <strong>Ctrl K</strong> (or <code>/</code>) anywhere, or click the search box at the top, and type part of a server, database or page name. Pick a result to jump straight to it.</p>
 <h3 id="time-ranges-and-time-travel">Time ranges and time travel</h3>
 <p>Pages with charts have <strong>1 h</strong>, <strong>6 h</strong>, <strong>24 h</strong> and <strong>7 d</strong> buttons, and <strong>Custom</strong> for any period. Click any point on a chart to see what was running and who was blocking whom at that moment. <strong>Back to now</strong> returns to live data.</p>
+<h3 id="changing-the-look">Changing the look</h3>
+<p>dbriq opens in the dbriq 2 look. To switch, open <strong>Settings &gt; Appearance</strong> and choose <strong>dbriq 2</strong>, <strong>Classic dark</strong>, <strong>Classic light</strong> or <strong>Classic, match Windows</strong>. The choice is saved in your browser and changes nothing else.</p>
 <h3 id="status-colours">Status colours</h3>
 <div class="table-scroll"><table>
 <thead>
@@ -172,8 +176,9 @@
 </table></div>
 <h2 id="estate-your-whole-estate-on-one-page">Estate: your whole estate on one page</h2>
 <p>The Estate page lists every database, most urgent first, with its problem in words. Start each day here.</p>
-<figure><img src="/assets/img/screens/estate.webp" alt="The Estate page grouped by server, with critical and warning databases first and the top issue for each" width="1440" height="900" loading="lazy"><figcaption>The Estate page grouped by server, with critical and warning databases first and the top issue for each</figcaption></figure>
-<p><strong>Summary tiles</strong> at the top count databases that need attention, and split them into Critical, Warning, Unreachable, Healthy and Paused. Click a tile to filter the list.</p>
+<figure><img src="/assets/img/screens/home.webp" alt="The home page: databases that need attention, healthy databases, the fullest and busiest databases, blocking, alerts and servers as tiles" width="1440" height="900" loading="lazy"><figcaption>The home page: databases that need attention, healthy databases, the fullest and busiest databases, blocking, alerts and servers as tiles</figcaption></figure>
+<p>The page opens with a <strong>summary in tiles</strong>: how many databases need attention, with the four most urgent; healthy databases; the fullest database; the busiest databases by CPU; blocking now, with <strong>See the fix</strong>; the longest running query; active alerts; and servers. Click a tile to open what it shows.</p>
+<p><strong>Status cards</strong> below the tiles count databases that need attention, and split them into Critical, Warning, Unreachable, Healthy and Paused. Click a card to filter the list.</p>
 <p><strong>Views:</strong></p>
 <ul>
 <li><strong>Problems only</strong> shows just the databases that need attention.</li>
@@ -222,9 +227,10 @@
 <p>Click a column heading to sort, or a database name to open its page.</p>
 <h2 id="database-page-what-is-wrong-and-what-to-do">Database page: what is wrong and what to do</h2>
 <p>The database page explains each problem from cause to fix.</p>
-<figure><img src="/assets/img/screens/diagnosis.webp" alt="The database page for OrdersDB, with an active alert and a blocking diagnosis showing the session causing it and what to do" width="1440" height="900" loading="lazy"><figcaption>The database page for OrdersDB, with an active alert and a blocking diagnosis showing the session causing it and what to do</figcaption></figure>
+<figure><img src="/assets/img/screens/database.webp" alt="The OrdersDB page: summary tiles for the main problem, CPU, sessions, free space, blocked wait, deadlocks and running statements" width="1440" height="900" loading="lazy"><figcaption>The OrdersDB page: summary tiles for the main problem, CPU, sessions, free space, blocked wait, deadlocks and running statements</figcaption></figure>
 <p>It has these sections, top to bottom:</p>
 <ol>
+<li><strong>Summary tiles</strong>: the main problem with <strong>See the fix</strong> (it jumps to the diagnosis), CPU, sessions, free space, the longest blocked wait, deadlocks in the last 24 hours, and statements running now.</li>
 <li><strong>Active alerts</strong>, each with <strong>Open</strong> and <strong>Acknowledge</strong>.</li>
 <li><strong>Diagnosis</strong>: every bottleneck found in the latest collection. Each finding gives:<ul>
 <li>a severity, a category (such as Blocking or CPU) and a one-line title;</li>
@@ -275,7 +281,9 @@
 <p>The database page's Diagnosis for the same problem includes what to do and a fix script.</p>
 <p><strong>Blocking history</strong> keeps past incidents: when each started, how long it lasted, the head blocker, how many sessions were blocked and the longest wait. Ongoing incidents are marked <strong>Ongoing</strong>. Filter by database, server, user, machine, application or statement, choose a <strong>Period</strong>, and click <strong>Show older incidents</strong> for more.</p>
 <p><strong>Deadlocks</strong> groups deadlocks with the same sessions, statements and objects into patterns, so one fix covers the whole group. Each pattern shows how many times it occurred, the victim, each session's statement and isolation level, <strong>What happened</strong> step by step, a <strong>Deadlock graph</strong>, and <strong>How to prevent it</strong>.</p>
-<p>Deadlock capture needs no setup on SQL Server, Managed Instance and Amazon RDS. On Azure SQL Database it needs the deadlock capture part of the setup script. PostgreSQL deadlocks are logged when <code>log_lock_waits</code> is on, as the PostgreSQL setup script recommends.</p>
+<blockquote>
+<p><strong>Setup:</strong> deadlock capture needs no setup on SQL Server, Managed Instance and Amazon RDS. On Azure SQL Database it needs the deadlock capture part of the setup script. PostgreSQL deadlocks are logged when <code>log_lock_waits</code> is on, as the PostgreSQL setup script recommends.</p>
+</blockquote>
 <h2 id="health-checks-what-is-at-risk">Health checks: what is at risk</h2>
 <p>Health checks find problems that are not slowing anything down yet but could cause an outage or data loss. They run every 10 minutes and are grouped into nine types:</p>
 <div class="table-scroll"><table>
@@ -468,7 +476,6 @@
         <li><a href="/download.html">Download the beta</a></li>
         <li><a href="/guides/setup.html">Setup guide</a></li>
         <li><a href="/guides/user-guide.html">User guide</a></li>
-        <li><a href="/about.html">About dbriq</a></li>
       </ul>
     </div>
     <div>
@@ -485,5 +492,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/auth.js"></script>
+<script src="/assets/js/guides.js"></script>
 </body>
 </html>
